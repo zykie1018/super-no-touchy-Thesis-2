@@ -42,6 +42,7 @@ public class Menu : MonoBehaviour
     {
         GameManager.instance.QuitGame();
     }
+    
 
     public void ToggleClassicMode()
     {

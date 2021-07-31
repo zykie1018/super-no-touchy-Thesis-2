@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     private Player player;
     private int deaths = 0;
     private int lives = 0;
-    private const int STARTING_LIVES = 50;
+    private const int STARTING_LIVES = 5;
 
     private void Awake()
     {
