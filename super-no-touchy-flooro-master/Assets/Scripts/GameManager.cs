@@ -297,6 +297,7 @@ public class GameManager : MonoBehaviour
         PushGameState(GameState.LOADING);
     }
 
+    //Persistent Save file -z
     public void ContinueGame()
     {
         if (saveFile.wasInGame)
@@ -318,6 +319,37 @@ public class GameManager : MonoBehaviour
         else NewGame();
     }
 
+    // function for BackBtn Save Game
+    public void SaveMenuGame()
+    {
+        if (saveFile.wasInGame)
+        {
+            if (saveFile.inClassicMode)
+            {
+                classicMode = true;
+            }
+            else
+            {
+                classicMode = false;
+                deaths = saveFile.deathCount;
+            }
+
+            LoadLevel(saveFile.currentLevel);
+            PushGameState(GameState.PLAYING);
+            PushGameState(GameState.LOADING);
+        }
+        else Debug.Log("Save File not Found");
+    }
+
+    //function for BackBtn Menu
+    public void LoadMainMenu()
+    {
+        LoadLevel(MAIN_MENU);
+        PopGameState();
+        
+        //PushGameState(GameState.MAIN_MENU);
+        //PushGameState(GameState.LOADING);  
+    }
     public void QuitGame()
     {
 
