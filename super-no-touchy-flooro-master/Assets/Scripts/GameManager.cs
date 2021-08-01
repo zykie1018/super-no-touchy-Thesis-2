@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     private int lives = 0;
     private const int STARTING_LIVES = 5;
 
-    
+    // public Colorblind cbeFilter;
     private void Awake()
     {
         if (instance == null) instance = this;
