@@ -17,6 +17,9 @@ TagManager:
   - Water
   - Checkpoint
   - Final
+  - Moving
+  - PauseMenu
+  - GameCanvas
   layers:
   - Default
   - TransparentFX

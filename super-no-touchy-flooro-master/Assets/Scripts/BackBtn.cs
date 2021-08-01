@@ -6,8 +6,15 @@ using UnityEngine.UI; //for calling UI scripts
 
 public class BackBtn : MonoBehaviour
 {
-    public string backTomenu;
     public GameObject pauseUI;
+    public GameObject parentObj;
+    public Transform[] hiddenChildren;
+    Transform checker;
+    string pm = "PauseMenu";
+    void Start()
+    {
+        FindObject();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -20,8 +27,9 @@ public class BackBtn : MonoBehaviour
     // Pause Menu
     public void Toggle()
     {
-        pauseUI.SetActive(!pauseUI.activeSelf);
-            if(pauseUI.activeSelf)
+        pauseUI.gameObject.SetActive(!pauseUI.gameObject.activeSelf);
+        Debug.Log("Check");
+            if(pauseUI.gameObject.activeSelf)
             {
                 Time.timeScale = 0f;
             }
@@ -29,6 +37,21 @@ public class BackBtn : MonoBehaviour
             {
                 Time.timeScale = 1f;
             }
+    }
+    public void FindObject()
+    {
+        GameObject parentObj = GameObject.FindGameObjectWithTag("GameCanvas");
+        Transform[] hiddenChildren = parentObj.GetComponentsInChildren<Transform>(true);
+        
+        // foreach (Transform active in hiddenChildren)
+        // {
+        //     if(active.name == pm)
+        //     {
+        //        checker = active.gameObject.FindGameObjectWithTag(pm).GetComponent<Transform>();
+        //     }
+        // }
+        pauseUI = parentObj.transform.Find(pm).gameObject;
+
     }
 
     //Back to Main Menu
@@ -48,6 +71,7 @@ public class BackBtn : MonoBehaviour
     //Save Game- semiworking 
     public void SaveGame()
     {
+        Time.timeScale = 1f;
         Debug.Log("Game Saved");
         GameManager.instance.SaveMenuGame();
     }

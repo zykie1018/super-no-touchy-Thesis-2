@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     private int lives = 0;
     private const int STARTING_LIVES = 5;
 
+    
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -110,7 +111,8 @@ public class GameManager : MonoBehaviour
                 if (SceneManager.GetSceneByBuildIndex(levelIndex).isLoaded)
                 {
                     PopGameState();
-                    OnStateEntered();
+                    OnStateEntered(); 
+                    Debug.Log("check1");
                 }
                 break;
 
@@ -318,7 +320,7 @@ public class GameManager : MonoBehaviour
         }
         else NewGame();
     }
-
+#region Backbtn functions
     // function for BackBtn Save Game
     public void SaveMenuGame()
     {
@@ -332,10 +334,12 @@ public class GameManager : MonoBehaviour
             {
                 classicMode = false;
                 deaths = saveFile.deathCount;
-            }
 
+            }
+            
             LoadLevel(saveFile.currentLevel);
-            PushGameState(GameState.PLAYING);
+            //OnStateEntered();
+            //PushGameState(GameState.PLAYING);
             PushGameState(GameState.LOADING);
         }
         else Debug.Log("Save File not Found");
@@ -344,12 +348,14 @@ public class GameManager : MonoBehaviour
     //function for BackBtn Menu
     public void LoadMainMenu()
     {
+        deaths = 0;
+        lives = 0;
         LoadLevel(MAIN_MENU);
         PopGameState();
-        
-        //PushGameState(GameState.MAIN_MENU);
-        //PushGameState(GameState.LOADING);  
+        PushGameState(GameState.MAIN_MENU);
+        PushGameState(GameState.LOADING);  
     }
+#endregion
     public void QuitGame()
     {
 
