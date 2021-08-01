@@ -411,19 +411,16 @@ public class GameManager : MonoBehaviour
         {
         if (counter == 1) {
             GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
-            
         }
         else  if (counter == 2) {
             GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
-            
         }
         else if (counter == 3) {
             GameObject.Find("filter").GetComponent<Text>().text = "Tritanopia";
-            
         } 
         else {
             GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
-            
+            counter = 0;            
         }
         }
     }
