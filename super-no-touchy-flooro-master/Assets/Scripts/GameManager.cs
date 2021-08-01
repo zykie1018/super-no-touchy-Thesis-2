@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     private bool classicMode = false;
     private Player player;
+    private int counter = 0;
     private int deaths = 0;
     private int lives = 0;
     private const int STARTING_LIVES = 5;
@@ -402,6 +403,29 @@ public class GameManager : MonoBehaviour
         classicMode = !classicMode;
         GameObject.Find("classicyn").GetComponent<Text>().text = classicMode ? "yes" : "no";
         lives = 1; //this needs to get fixed
+    }
+    
+    public void Filter()
+    {
+        counter++;
+        {
+        if (counter == 1) {
+            GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
+            
+        }
+        else  if (counter == 2) {
+            GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
+            
+        }
+        else if (counter == 3) {
+            GameObject.Find("filter").GetComponent<Text>().text = "Tritanopia";
+            
+        } 
+        else {
+            GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
+            
+        }
+        }
     }
 
     public void ResetSave()

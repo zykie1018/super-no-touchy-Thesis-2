@@ -43,6 +43,10 @@ public class Menu : MonoBehaviour
         GameManager.instance.QuitGame();
     }
     
+    public void Filter()
+    {
+        GameManager.instance.Filter();
+    }
 
     public void ToggleClassicMode()
     {
