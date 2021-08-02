@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
                 {
                     PopGameState();
                     OnStateEntered(); 
-                    Debug.Log("check1");
+                    Debug.Log("chosen filter: "+ counter);
                 }
                 break;
 
@@ -349,8 +349,8 @@ public class GameManager : MonoBehaviour
     //function for BackBtn Menu
     public void LoadMainMenu()
     {
-        deaths = 0;
-        lives = 0;
+        // deaths = 0;
+        // lives = 0;
         LoadLevel(MAIN_MENU);
         PopGameState();
         PushGameState(GameState.MAIN_MENU);
@@ -420,8 +420,10 @@ public class GameManager : MonoBehaviour
         } 
         else {
             GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
-            counter = 0;            
+            counter = 0;
+                    
         }
+        Debug.Log(counter);
         }
     }
 
