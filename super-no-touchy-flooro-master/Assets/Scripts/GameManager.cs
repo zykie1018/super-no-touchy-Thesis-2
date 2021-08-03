@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
         Debug.Log(dataPath);
+        Debug.Log(levelIndex);
         saveFile = GameSaver.LoadData(dataPath);
 
         PushGameState(GameState.MAIN_MENU);
@@ -113,7 +114,8 @@ public class GameManager : MonoBehaviour
                 {
                     PopGameState();
                     OnStateEntered(); 
-                    Debug.Log("chosen filter: "+ counter);
+                    Debug.Log("chosen filter: "+ counter); //colorblind filter checker
+                    Debug.Log(saveFile.wasInGame);
                 }
                 break;
 
@@ -337,10 +339,8 @@ public class GameManager : MonoBehaviour
                 deaths = saveFile.deathCount;
 
             }
-            
-            LoadLevel(saveFile.currentLevel);
-            //OnStateEntered();
-            //PushGameState(GameState.PLAYING);
+            LoadLevel(MAIN_MENU);
+            PushGameState(GameState.MAIN_MENU);
             PushGameState(GameState.LOADING);
         }
         else Debug.Log("Save File not Found");

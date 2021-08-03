@@ -21,15 +21,14 @@ public class BackBtn : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             Toggle();
-        }     
-    }
+        }
 
+    }
     // Pause Menu
     public void Toggle()
     {
-        pauseUI.gameObject.SetActive(!pauseUI.gameObject.activeSelf);
-        Debug.Log("Check");
-            if(pauseUI.gameObject.activeSelf)
+        pauseUI.SetActive(!pauseUI.activeSelf);
+            if(pauseUI.activeSelf)
             {
                 Time.timeScale = 0f;
             }
