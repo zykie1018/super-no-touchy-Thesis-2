@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
             case GameState.LOADING:
                 if (SceneManager.GetSceneByBuildIndex(levelIndex).isLoaded)
                 {
-                    DontDestroyOnLoad(cameraFilter);
+                    //DontDestroyOnLoad(cameraFilter);
                     PopGameState();
                     OnStateEntered(); 
                     Debug.Log("chosen filter: "+ counter); //colorblind filter checker
