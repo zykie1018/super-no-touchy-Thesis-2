@@ -8,7 +8,7 @@ public class BackBtn : MonoBehaviour
 {
     public GameObject pauseUI;
     public GameObject parentObj;
-    public Transform[] hiddenChildren;
+    //public Transform[] hiddenChildren;
     Transform checker;
     string pm = "PauseMenu";
     void Start()
@@ -40,7 +40,7 @@ public class BackBtn : MonoBehaviour
     public void FindObject()
     {
         GameObject parentObj = GameObject.FindGameObjectWithTag("GameCanvas");
-        Transform[] hiddenChildren = parentObj.GetComponentsInChildren<Transform>(true);
+        // Transform[] hiddenChildren = parentObj.GetComponentsInChildren<Transform>(true);
         
         // foreach (Transform active in hiddenChildren)
         // {

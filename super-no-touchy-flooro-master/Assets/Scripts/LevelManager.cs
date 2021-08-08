@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     {
         //singleton pattern from unity's roguelike tut
         if (instance == null) instance = this;
-        else if (instance != this) Destroy(gameObject); //unsubscribe from an event when youre finished with it to avoid memory leaks
+        else if (instance != this) Destroy(gameObject);
     }
 
 

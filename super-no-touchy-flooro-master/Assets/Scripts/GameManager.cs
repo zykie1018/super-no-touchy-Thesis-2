@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Wilberforce; //namespace reference when using plugin
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private int levelIndex;
 
+    public Colorblind cbeFilter; //reference colorblind plugin
+    public GameObject cameraFilter;
     //scene numbers
     private const int MAIN_MENU = 0;
     private const int LEVEL_ONE = 1;
@@ -39,17 +42,19 @@ public class GameManager : MonoBehaviour
     private int counter = 0;
     private int deaths = 0;
     private int lives = 0;
-    private const int STARTING_LIVES = 5;
+    private const int STARTING_LIVES = 50;
 
     
     private void Awake()
     {
+        //Unity tut, Data persistence
         if (instance == null) instance = this;
         else if (instance != this) Destroy(gameObject);
 
         dataPath = Path.Combine(Application.persistentDataPath, "savedata.dat");
 
         DontDestroyOnLoad(gameObject);
+        
 
     }
 
@@ -112,15 +117,17 @@ public class GameManager : MonoBehaviour
             case GameState.LOADING:
                 if (SceneManager.GetSceneByBuildIndex(levelIndex).isLoaded)
                 {
+                    DontDestroyOnLoad(cameraFilter);
                     PopGameState();
                     OnStateEntered(); 
                     Debug.Log("chosen filter: "+ counter); //colorblind filter checker
-                    Debug.Log(saveFile.wasInGame);
+                    Debug.Log("number of deaths: "+ deaths);
+                    
                 }
                 break;
 
             case GameState.PLAYING:
-
+                
                 if (EntityManager.instance.levelComplete)
                 {
                     if (classicMode)
@@ -142,6 +149,7 @@ public class GameManager : MonoBehaviour
                             levels += (i.ToString() + ", ");
                         }
                         Debug.Log(levels);
+                        Debug.Log(EntityManager.instance.deathCount.text);
                     }
 
                     //if (levelIndex == 10 || levelIndex == 20)
@@ -279,6 +287,7 @@ public class GameManager : MonoBehaviour
     public void PushGameState(GameState state)
     {
         stateStack.Push(state);
+        
     }
 
     public GameState PopGameState()
@@ -296,7 +305,7 @@ public class GameManager : MonoBehaviour
         else saveFile.inClassicMode = false;
 
         saveFile.wasInGame = true;
-
+        
         LoadLevel(LEVEL_ONE);
         PushGameState(GameState.PLAYING);
         PushGameState(GameState.LOADING);
@@ -327,7 +336,8 @@ public class GameManager : MonoBehaviour
     // function for BackBtn Save Game
     public void SaveMenuGame()
     {
-        if (saveFile.wasInGame)
+        
+        if (saveFile.wasInGame == true)
         {
             if (saveFile.inClassicMode)
             {
@@ -339,6 +349,7 @@ public class GameManager : MonoBehaviour
                 deaths = saveFile.deathCount;
 
             }
+            
             LoadLevel(MAIN_MENU);
             PushGameState(GameState.MAIN_MENU);
             PushGameState(GameState.LOADING);
@@ -349,8 +360,8 @@ public class GameManager : MonoBehaviour
     //function for BackBtn Menu
     public void LoadMainMenu()
     {
-        // deaths = 0;
-        // lives = 0;
+         deaths = 0;
+         lives = 0;
         LoadLevel(MAIN_MENU);
         PopGameState();
         PushGameState(GameState.MAIN_MENU);
@@ -411,24 +422,31 @@ public class GameManager : MonoBehaviour
         {
         if (counter == 1) {
             GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
+            cbeFilter.Type = 1;
         }
         else  if (counter == 2) {
             GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
+            cbeFilter.Type = 2;
         }
         else if (counter == 3) {
             GameObject.Find("filter").GetComponent<Text>().text = "Tritanopia";
+            cbeFilter.Type = 3;
         } 
         else {
             GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
             counter = 0;
+            cbeFilter.Type = 0;
                     
         }
-        Debug.Log(counter);
+        Debug.Log("filter counter: "+counter);
+        Debug.Log("Filter: " + cbeFilter.Type);
         }
     }
 
     public void ResetSave()
     {
+        deaths = 0;
+        lives = 0;
         saveFile = new SaveFile();
         ContinueLevelText();
         CompletionText();
