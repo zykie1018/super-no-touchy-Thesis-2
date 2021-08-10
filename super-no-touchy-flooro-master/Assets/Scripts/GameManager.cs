@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(levelIndex);
         saveFile = GameSaver.LoadData(dataPath);
 
+        DontDestroyCB();
         PushGameState(GameState.MAIN_MENU);
         OnStateEntered();
     }
@@ -118,6 +119,7 @@ public class GameManager : MonoBehaviour
                 if (SceneManager.GetSceneByBuildIndex(levelIndex).isLoaded)
                 {
                     //DontDestroyOnLoad(cameraFilter);
+                    DontDestroyCB();
                     PopGameState();
                     OnStateEntered(); 
                     Debug.Log("chosen filter: "+ counter); //colorblind filter checker
@@ -472,5 +474,13 @@ public class GameManager : MonoBehaviour
     public bool ClassicMode()
     {
         return classicMode;
+    }
+    
+    public void DontDestroyCB()
+    {
+        cbeFilter.Type = counter;
+        cbeFilter = GameObject.FindGameObjectWithTag("CameraFilter").GetComponent<Colorblind>();
+        cameraFilter = GameObject.FindGameObjectWithTag("CameraFilter");
+        Debug.Log("Found " + cameraFilter);
     }
 }
