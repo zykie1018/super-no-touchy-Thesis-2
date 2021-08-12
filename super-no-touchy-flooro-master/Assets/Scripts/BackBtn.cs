@@ -9,6 +9,7 @@ public class BackBtn : MonoBehaviour
     public GameObject pauseUI;
     public GameObject parentObj;
     //public Transform[] hiddenChildren;
+    public static bool filterChecker;
     Transform checker;
     string pm = "PauseMenu";
     void Start()
@@ -39,7 +40,7 @@ public class BackBtn : MonoBehaviour
     }
     public void FindObject()
     {
-        GameObject parentObj = GameObject.FindGameObjectWithTag("GameCanvas");
+        parentObj = GameObject.FindGameObjectWithTag("GameCanvas");
         // Transform[] hiddenChildren = parentObj.GetComponentsInChildren<Transform>(true);
         
         // foreach (Transform active in hiddenChildren)
@@ -56,9 +57,12 @@ public class BackBtn : MonoBehaviour
     //Back to Main Menu
     public void LoadMainMenu()
     {
+        filterChecker = true;
         //Debug.Log("Loading Main Menu...");
         Time.timeScale = 1f;
         GameManager.instance.LoadMainMenu();
+        
+        
     }
     //Quit Game
     public void QuitGame()

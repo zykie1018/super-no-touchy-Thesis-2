@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private int levelIndex;
 
     public Colorblind cbeFilter; //reference colorblind plugin
+    
     public GameObject cameraFilter;
     //scene numbers
     private const int MAIN_MENU = 0;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     private bool classicMode = false;
     private Player player;
     private int counter = 0;
+    
     private int deaths = 0;
     private int lives = 0;
     private const int STARTING_LIVES = 50;
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //Unity tut, Data persistence
-        if (instance == null) instance = this;
+        if (instance == null) instance = this; 
         else if (instance != this) Destroy(gameObject);
 
         dataPath = Path.Combine(Application.persistentDataPath, "savedata.dat");
@@ -118,6 +120,7 @@ public class GameManager : MonoBehaviour
                 if (SceneManager.GetSceneByBuildIndex(levelIndex).isLoaded)
                 {
                     //DontDestroyOnLoad(cameraFilter);
+                    
                     PopGameState();
                     OnStateEntered(); 
                     Debug.Log("chosen filter: "+ counter); //colorblind filter checker
@@ -132,6 +135,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (classicMode)
                     {
+                         
                         saveFile.classicLevelIndicesCompleted.Add(levelIndex);
                         string levels = "";
                         foreach (int i in saveFile.classicLevelIndicesCompleted)
@@ -142,6 +146,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
+                        
                         saveFile.standardLevelIndicesCompleted.Add(levelIndex);
                         string levels = "";
                         foreach (int i in saveFile.standardLevelIndicesCompleted)
@@ -149,7 +154,7 @@ public class GameManager : MonoBehaviour
                             levels += (i.ToString() + ", ");
                         }
                         Debug.Log(levels);
-                        Debug.Log(EntityManager.instance.deathCount.text);
+                        Debug.Log("player deaths = " +EntityManager.instance.deathCount.text);
                     }
 
                     //if (levelIndex == 10 || levelIndex == 20)
@@ -158,7 +163,7 @@ public class GameManager : MonoBehaviour
                     //    SceneManager.LoadScene(WORLD_COMPLETE);
                     //    Debug.Log("scene loaded");
                     //}
-
+                    
                     LoadLevel(levelIndex + 1); //change this to update level index itself, make more useful function to change level...
                     if (levelIndex == WIN)
                     {
@@ -237,7 +242,7 @@ public class GameManager : MonoBehaviour
                 saveFile.currentLevel = levelIndex;
                 saveFile.wasInGame = true;
                 GameSaver.SaveData(saveFile, dataPath);
-
+                
                 break;
 
             case GameState.GAME_OVER:
@@ -249,7 +254,7 @@ public class GameManager : MonoBehaviour
                 saveFile.currentLevel = 0;
                 saveFile.inClassicMode = false;
                 GameSaver.SaveData(saveFile, dataPath);
-
+               
                 break;
 
             case GameState.WIN:
@@ -305,6 +310,7 @@ public class GameManager : MonoBehaviour
         else saveFile.inClassicMode = false;
 
         saveFile.wasInGame = true;
+        
         
         LoadLevel(LEVEL_ONE);
         PushGameState(GameState.PLAYING);
@@ -418,7 +424,17 @@ public class GameManager : MonoBehaviour
     
     public void Filter()
     {
-        counter++;
+        // Validation Checker for BackBtn (probably redundant but will try and refactor this code segment)
+        // if false then increment else set back filterChecker to false to reset its value
+        if(!BackBtn.filterChecker)
+        {
+            counter++;
+        }
+        else
+        {
+            BackBtn.filterChecker = false;    
+        }
+        
         {
         if (counter == 1) {
             GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
@@ -467,10 +483,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(levelIndex, LoadSceneMode.Single);
         this.levelIndex = levelIndex;
+        
     }
 
     public bool ClassicMode()
     {
         return classicMode;
     }
+    
 }

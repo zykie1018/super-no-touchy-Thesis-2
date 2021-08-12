@@ -15,7 +15,6 @@ namespace Wilberforce
     {
         // public Parameters  
 		public int Type = 0;
-
         // private Parameters
 		public Shader colorblindShader;
         private bool isSupported;

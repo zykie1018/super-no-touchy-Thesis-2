@@ -65,4 +65,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 5228859002934206673, guid: efba3cbfb5214ec47b90f66d49b573c2, type: 3}
   parentObj: {fileID: 0}
-  hiddenChildren: []
