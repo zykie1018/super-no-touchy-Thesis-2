@@ -326,7 +326,7 @@ public class GameManager : MonoBehaviour
                 classicMode = false;
                 deaths = saveFile.deathCount;
             }
-
+            //saveFile = GameSaver.LoadData(dataPath);
             LoadLevel(saveFile.currentLevel);
             PushGameState(GameState.PLAYING);
             PushGameState(GameState.LOADING);
@@ -350,7 +350,7 @@ public class GameManager : MonoBehaviour
                 deaths = saveFile.deathCount;
 
             }
-            
+            GameSaver.SaveData(saveFile, dataPath);
             LoadLevel(MAIN_MENU);
             PushGameState(GameState.MAIN_MENU);
             PushGameState(GameState.LOADING);
