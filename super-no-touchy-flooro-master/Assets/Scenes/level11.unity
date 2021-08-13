@@ -617,6 +617,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1093903816369670, guid: fdc86f1d667d8ca4ca24002a3f77408f, type: 3}
+      propertyPath: m_TagString
+      value: DeathTxt
+      objectReference: {fileID: 0}
     - target: {fileID: 1284217325656868, guid: fdc86f1d667d8ca4ca24002a3f77408f, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -624,6 +628,10 @@ PrefabInstance:
     - target: {fileID: 1284217325656868, guid: fdc86f1d667d8ca4ca24002a3f77408f, type: 3}
       propertyPath: m_TagString
       value: GameCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613691694456048, guid: fdc86f1d667d8ca4ca24002a3f77408f, type: 3}
+      propertyPath: m_TagString
+      value: DeathTxt
       objectReference: {fileID: 0}
     - target: {fileID: 114903105760914100, guid: fdc86f1d667d8ca4ca24002a3f77408f,
         type: 3}

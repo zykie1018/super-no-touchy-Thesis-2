@@ -21,6 +21,8 @@ TagManager:
   - PauseMenu
   - GameCanvas
   - CameraFilter
+  - DeathTxt
+  - DeathCnt
   layers:
   - Default
   - TransparentFX

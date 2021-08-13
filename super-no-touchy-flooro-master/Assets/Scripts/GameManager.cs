@@ -25,11 +25,8 @@ public class GameManager : MonoBehaviour
     private SaveFile saveFile;
     private string dataPath;
     public static GameManager instance = null;
-
     private int levelIndex;
-
     public Colorblind cbeFilter; //reference colorblind plugin
-    
     public GameObject cameraFilter;
     //scene numbers
     private const int MAIN_MENU = 0;
@@ -41,7 +38,6 @@ public class GameManager : MonoBehaviour
     private bool classicMode = false;
     private Player player;
     private int counter = 0;
-    
     private int deaths = 0;
     private int lives = 0;
     private const int STARTING_LIVES = 50;
@@ -64,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
         Debug.Log(dataPath);
-        Debug.Log(levelIndex);
+        Debug.Log("level index: "+levelIndex);
         saveFile = GameSaver.LoadData(dataPath);
 
         PushGameState(GameState.MAIN_MENU);
@@ -119,12 +115,11 @@ public class GameManager : MonoBehaviour
             case GameState.LOADING:
                 if (SceneManager.GetSceneByBuildIndex(levelIndex).isLoaded)
                 {
-                    //DontDestroyOnLoad(cameraFilter);
-                    
+
                     PopGameState();
                     OnStateEntered(); 
                     Debug.Log("chosen filter: "+ counter); //colorblind filter checker
-                    Debug.Log("number of deaths: "+ deaths);
+                    Debug.Log("Loading gamestate deaths: "+ EntityManager.instance.deathCount.text);
                     
                 }
                 break;
@@ -153,8 +148,8 @@ public class GameManager : MonoBehaviour
                         {
                             levels += (i.ToString() + ", ");
                         }
-                        Debug.Log(levels);
-                        Debug.Log("player deaths = " +EntityManager.instance.deathCount.text);
+                        Debug.Log("normal mode level: " + levels);
+                        
                     }
 
                     //if (levelIndex == 10 || levelIndex == 20)
@@ -461,8 +456,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetSave()
     {
-        deaths = 0;
-        lives = 0;
+        // deaths = 0;
+        // lives = 0;
         saveFile = new SaveFile();
         ContinueLevelText();
         CompletionText();

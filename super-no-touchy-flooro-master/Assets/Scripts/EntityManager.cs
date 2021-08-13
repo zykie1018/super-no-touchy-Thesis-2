@@ -29,6 +29,10 @@ public class EntityManager : MonoBehaviour
         resettables = FindObjectsOfType<MonoBehaviour>().OfType<IResettable>().ToList();
         player = FindObjectOfType<Player>();
         player.onPlayerDeath += HandlePlayerDeathEM;
+
+        // reference to gameobject
+        deathText = GameObject.FindGameObjectWithTag("DeathTxt").GetComponent<Text>();
+        deathCount = GameObject.FindGameObjectWithTag("DeathCnt").GetComponent<Text>();
         
         if (GameManager.instance.ClassicMode())
         {
