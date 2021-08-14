@@ -223,6 +223,7 @@ public class GameManager : MonoBehaviour
                 AudioPlayer.instance.PlayMusic(Menu.instance.menuMusic);
                 ContinueLevelText();
                 CompletionText();
+                SaveFilterSelected();
                 break;
 
             case GameState.PLAYING:
@@ -416,6 +417,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void SaveFilterSelected() //save Selected Filter
+    {
+        Text savedSelectedFilter = GameObject.Find("filter").GetComponent<Text>();
+
+        if (counter == 0)
+        {
+            savedSelectedFilter.text = "Normal Vision";
+        }
+        if (counter == 1)
+        {
+            savedSelectedFilter.text = "Protanopia";
+        }
+        if (counter == 2)
+        {
+            savedSelectedFilter.text = "Deuteranopia";
+        }
+        if (counter == 3)
+        {
+            savedSelectedFilter.text = "Tritonopia";
+        }
+    }
+
     public void ToggleClassicMode()
     {
         classicMode = !classicMode;
@@ -453,7 +476,6 @@ public class GameManager : MonoBehaviour
             GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
             counter = 0;
             cbeFilter.Type = 0;
-                    
         }
         Debug.Log("filter counter: "+counter);
         Debug.Log("Filter: " + cbeFilter.Type);
