@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     private int levelIndex;
     public Colorblind cbeFilter; //reference colorblind plugin
     public GameObject cameraFilter;
+
+    /* For loading screen
+    public GameObject loadingScreen;
+    public Slider slider;
+    public Text progressText;
+    */
     //scene numbers
     private const int MAIN_MENU = 0;
     private const int LEVEL_ONE = 1;
@@ -152,12 +158,12 @@ public class GameManager : MonoBehaviour
                         
                     }
 
-                    //if (levelIndex == 10 || levelIndex == 20)
-                    //{
+                    // if (levelIndex == 10 || levelIndex == 20)
+                    // {
                     //    Debug.Log(levelIndex);
                     //    SceneManager.LoadScene(WORLD_COMPLETE);
                     //    Debug.Log("scene loaded");
-                    //}
+                    // }
                     
                     LoadLevel(levelIndex + 1); //change this to update level index itself, make more useful function to change level...
                     if (levelIndex == WIN)
@@ -297,6 +303,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
+        
         if (classicMode)
         {
             saveFile.inClassicMode = true;
@@ -305,8 +312,7 @@ public class GameManager : MonoBehaviour
         else saveFile.inClassicMode = false;
 
         saveFile.wasInGame = true;
-        
-        
+
         LoadLevel(LEVEL_ONE);
         PushGameState(GameState.PLAYING);
         PushGameState(GameState.LOADING);
@@ -478,9 +484,25 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(levelIndex, LoadSceneMode.Single);
         this.levelIndex = levelIndex;
-        
+        // StartCoroutine(LoadAsynchronously(levelIndex));
     }
 
+    /*IEnumerator LoadAsynchronously (int levelIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex, LoadSceneMode.Single);
+        this.levelIndex = levelIndex;
+
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            // Debug.Log(progress);
+            slider.value = progress;
+            progressText.text = progress * 100f + "%";
+            yield return null;
+        }
+    }*/
     public bool ClassicMode()
     {
         return classicMode;

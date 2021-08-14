@@ -171,6 +171,18 @@ public class Player : RaycastController, ILockable, IResettable
             lastDirectionalUserInput = userInput;
         }
 
+        // Flip the character when Horizontal axis is negative
+        Vector3 characterScale = transform.localScale;
+        if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            characterScale.x = -0.6f;
+        }
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            characterScale.x = 0.6f;
+        }
+        transform.localScale = characterScale;
+
         if (Input.GetButtonDown("Jump"))
         {
             OnJumpKeyDown();
