@@ -62,7 +62,6 @@ public class BackBtn : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.instance.LoadMainMenu();
         
-        
     }
     //Quit Game
     public void QuitGame()

@@ -272,7 +272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Normal Vision
 --- !u!222 &97767547
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2671,6 +2671,11 @@ PrefabInstance:
     - target: {fileID: 7025853868026745402, guid: d40583eda8a8c3a4995174f4b21e34a2,
         type: 3}
       propertyPath: Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025853868026745404, guid: d40583eda8a8c3a4995174f4b21e34a2,
+        type: 3}
+      propertyPath: m_Depth
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7025853868026745404, guid: d40583eda8a8c3a4995174f4b21e34a2,

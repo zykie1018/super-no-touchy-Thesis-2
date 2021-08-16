@@ -43,12 +43,12 @@ public class GameManager : MonoBehaviour
 
     private bool classicMode = false;
     private Player player;
-    private int counter = 0;
+    private static int counter = 0;
     private int deaths = 0;
     private int lives = 0;
     private const int STARTING_LIVES = 50;
 
-    
+    bool condition = true;
     private void Awake()
     {
         //Unity tut, Data persistence
@@ -116,7 +116,13 @@ public class GameManager : MonoBehaviour
         switch (stateStack.Peek())
         {
             case GameState.MAIN_MENU:
+            if(!condition)
+                {
+                    Filter();
+                    condition = true;
+                }
                 break;
+            
 
             case GameState.LOADING:
                 if (SceneManager.GetSceneByBuildIndex(levelIndex).isLoaded)
@@ -126,6 +132,9 @@ public class GameManager : MonoBehaviour
                     OnStateEntered(); 
                     Debug.Log("chosen filter: "+ counter); //colorblind filter checker
                     Debug.Log("Loading gamestate deaths: "+ EntityManager.instance.deathCount.text);
+
+                    
+                    
                     
                 }
                 break;
@@ -417,7 +426,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SaveFilterSelected() //save Selected Filter
+    public void SaveFilterSelected() //save Selected Filter
     {
         Text savedSelectedFilter = GameObject.Find("filter").GetComponent<Text>();
 
@@ -435,7 +444,7 @@ public class GameManager : MonoBehaviour
         }
         if (counter == 3)
         {
-            savedSelectedFilter.text = "Tritonopia";
+            savedSelectedFilter.text = "Tritanopia";
         }
     }
 
@@ -453,6 +462,7 @@ public class GameManager : MonoBehaviour
         if(!BackBtn.filterChecker)
         {
             counter++;
+            
         }
         else
         {
