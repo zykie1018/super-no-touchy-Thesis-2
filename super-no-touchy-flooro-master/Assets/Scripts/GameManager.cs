@@ -320,6 +320,7 @@ public class GameManager : MonoBehaviour
             saveFile.lifeCount = STARTING_LIVES;
         }
         else saveFile.inClassicMode = false;
+        deaths = saveFile.deathCount - saveFile.deathCount;
 
         saveFile.wasInGame = true;
 
