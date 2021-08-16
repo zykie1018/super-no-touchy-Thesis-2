@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private bool classicMode = false;
     private Player player;
-    private static int counter = 0;
+    private static int counter = -1;
     private int deaths = 0;
     private int lives = 0;
     private const int STARTING_LIVES = 50;
@@ -359,12 +359,13 @@ public class GameManager : MonoBehaviour
             if (saveFile.inClassicMode)
             {
                 classicMode = true;
+                counter = counter -1;
             }
             else
             {
                 classicMode = false;
                 deaths = saveFile.deathCount;
-
+                counter = counter -1;
             }
             GameSaver.SaveData(saveFile, dataPath);
             LoadLevel(MAIN_MENU);
