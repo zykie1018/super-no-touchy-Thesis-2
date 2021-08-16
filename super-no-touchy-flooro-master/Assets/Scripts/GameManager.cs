@@ -232,7 +232,7 @@ public class GameManager : MonoBehaviour
                 AudioPlayer.instance.PlayMusic(Menu.instance.menuMusic);
                 ContinueLevelText();
                 CompletionText();
-                SaveFilterSelected();
+                Filter();
                 break;
 
             case GameState.PLAYING:
@@ -499,6 +499,10 @@ public class GameManager : MonoBehaviour
         saveFile = new SaveFile();
         ContinueLevelText();
         CompletionText();
+        cbeFilter.Type = 0;
+        counter = 0;
+        GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
+        
     }
 
     public void RestartGame()
