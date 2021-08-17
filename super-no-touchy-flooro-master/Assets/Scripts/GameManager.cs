@@ -47,8 +47,6 @@ public class GameManager : MonoBehaviour
     private int deaths = 0;
     private int lives = 0;
     private const int STARTING_LIVES = 50;
-
-    bool condition = true;
     private void Awake()
     {
         //Unity tut, Data persistence
@@ -116,11 +114,6 @@ public class GameManager : MonoBehaviour
         switch (stateStack.Peek())
         {
             case GameState.MAIN_MENU:
-            if(!condition)
-                {
-                    Filter();
-                    condition = true;
-                }
                 break;
             
 
@@ -233,6 +226,7 @@ public class GameManager : MonoBehaviour
                 ContinueLevelText();
                 CompletionText();
                 Filter();
+                
                 break;
 
             case GameState.PLAYING:
@@ -321,6 +315,7 @@ public class GameManager : MonoBehaviour
         }
         else saveFile.inClassicMode = false;
         deaths = saveFile.deathCount - saveFile.deathCount;
+        saveFile.deathCount = 0;
 
         saveFile.wasInGame = true;
 
@@ -379,12 +374,12 @@ public class GameManager : MonoBehaviour
     //function for BackBtn Menu
     public void LoadMainMenu()
     {
-         deaths = 0;
-         lives = 0;
+        deaths = 0;
+        lives = 0;
         LoadLevel(MAIN_MENU);
         PopGameState();
         PushGameState(GameState.MAIN_MENU);
-        PushGameState(GameState.LOADING);  
+        PushGameState(GameState.LOADING);
     }
 #endregion
     public void QuitGame()
@@ -425,28 +420,6 @@ public class GameManager : MonoBehaviour
             {
                 savedLevelText.text += "!";
             }
-        }
-    }
-
-    public void SaveFilterSelected() //save Selected Filter
-    {
-        Text savedSelectedFilter = GameObject.Find("filter").GetComponent<Text>();
-
-        if (counter == 0)
-        {
-            savedSelectedFilter.text = "Normal Vision";
-        }
-        if (counter == 1)
-        {
-            savedSelectedFilter.text = "Protanopia";
-        }
-        if (counter == 2)
-        {
-            savedSelectedFilter.text = "Deuteranopia";
-        }
-        if (counter == 3)
-        {
-            savedSelectedFilter.text = "Tritanopia";
         }
     }
 

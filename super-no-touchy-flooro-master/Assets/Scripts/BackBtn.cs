@@ -61,6 +61,7 @@ public class BackBtn : MonoBehaviour
         //Debug.Log("Loading Main Menu...");
         Time.timeScale = 1f;
         GameManager.instance.LoadMainMenu();
+        //GameManager.instance.Filter();
         
     }
     //Quit Game
@@ -77,4 +78,5 @@ public class BackBtn : MonoBehaviour
         Debug.Log("Game Saved");
         GameManager.instance.SaveMenuGame();
     }
+
 }
