@@ -226,6 +226,7 @@ public class GameManager : MonoBehaviour
                 ContinueLevelText();
                 CompletionText();
                 Filter();
+                modeSelect();
                 
                 break;
 
@@ -478,6 +479,15 @@ public class GameManager : MonoBehaviour
         counter = 0;
         GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
         
+    }
+    public void modeSelect()
+    {
+        if (classicMode == true) {
+            GameObject.Find("classicyn").GetComponent<Text>().text = "Yes";
+        }
+        else  if (classicMode == false) {
+            GameObject.Find("classicyn").GetComponent<Text>().text = "No";
+        }
     }
 
     public void RestartGame()
