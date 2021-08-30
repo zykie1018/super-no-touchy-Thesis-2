@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e4432fca04e904286fda53fb620963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outline: {fileID: 21300000, guid: 65f22c85d8da3cb468f17bd89ac67c80, type: 3}
+  outline: {fileID: 21300000, guid: a048d24d853243143922f284a5502754, type: 3}
 --- !u!1001 &8944587373680303563
 PrefabInstance:
   m_ObjectHideFlags: 0

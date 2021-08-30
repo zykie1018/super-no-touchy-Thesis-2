@@ -171,6 +171,7 @@ public class GameManager : MonoBehaviour
                     if (levelIndex == WIN)
                     {
                         PopGameState();
+                        Debug.Log(WORLD_COMPLETE);
                         PushGameState(GameState.WIN);
                         PushGameState(GameState.LOADING);
                     }
