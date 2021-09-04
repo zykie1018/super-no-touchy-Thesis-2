@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,9 +17,7 @@ public class GameManager : MonoBehaviour
         GAME_OVER,
         WORLD_COMPLETE
     }
-
     private const int levelCount = WIN - 1;
-
     private GameState state; //for now so can change in editor
     private Stack<GameState> stateStack = new Stack<GameState>();
     private SaveFile saveFile;
@@ -28,7 +26,7 @@ public class GameManager : MonoBehaviour
     private int levelIndex;
     public Colorblind cbeFilter; //reference colorblind plugin
     public GameObject cameraFilter;
-
+    
     /* For loading screen
     public GameObject loadingScreen;
     public Slider slider;
@@ -69,6 +67,7 @@ public class GameManager : MonoBehaviour
 
         PushGameState(GameState.MAIN_MENU);
         OnStateEntered();
+    
     }
 
     void Update()
