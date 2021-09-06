@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     private int levelIndex;
     public Colorblind cbeFilter; //reference colorblind plugin
     public GameObject cameraFilter;
-    
+
     /* For loading screen
     public GameObject loadingScreen;
     public Slider slider;
@@ -48,13 +48,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         //Unity tut, Data persistence
-        if (instance == null) instance = this; 
+        if (instance == null) instance = this;
         else if (instance != this) Destroy(gameObject);
 
         dataPath = Path.Combine(Application.persistentDataPath, "savedata.dat");
 
         DontDestroyOnLoad(gameObject);
-        
+
 
     }
 
@@ -62,12 +62,12 @@ public class GameManager : MonoBehaviour
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
         Debug.Log(dataPath);
-        Debug.Log("level index: "+levelIndex);
+        Debug.Log("level index: " + levelIndex);
         saveFile = GameSaver.LoadData(dataPath);
 
         PushGameState(GameState.MAIN_MENU);
         OnStateEntered();
-    
+
     }
 
     void Update()
@@ -114,30 +114,30 @@ public class GameManager : MonoBehaviour
         {
             case GameState.MAIN_MENU:
                 break;
-            
+
 
             case GameState.LOADING:
                 if (SceneManager.GetSceneByBuildIndex(levelIndex).isLoaded)
                 {
 
                     PopGameState();
-                    OnStateEntered(); 
-                    Debug.Log("chosen filter: "+ counter); //colorblind filter checker
-                    Debug.Log("Loading gamestate deaths: "+ EntityManager.instance.deathCount.text);
+                    OnStateEntered();
+                    Debug.Log("chosen filter: " + counter); //colorblind filter checker
+                    Debug.Log("Loading gamestate deaths: " + EntityManager.instance.deathCount.text);
 
-                    
-                    
-                    
+
+
+
                 }
                 break;
 
             case GameState.PLAYING:
-                
+
                 if (EntityManager.instance.levelComplete)
                 {
                     if (classicMode)
                     {
-                         
+
                         saveFile.classicLevelIndicesCompleted.Add(levelIndex);
                         string levels = "";
                         foreach (int i in saveFile.classicLevelIndicesCompleted)
@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
                     }
                     else
                     {
-                        
+
                         saveFile.standardLevelIndicesCompleted.Add(levelIndex);
                         string levels = "";
                         foreach (int i in saveFile.standardLevelIndicesCompleted)
@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
                             levels += (i.ToString() + ", ");
                         }
                         Debug.Log("normal mode level: " + levels);
-                        
+
                     }
 
                     // if (levelIndex == 10 || levelIndex == 20)
@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
                     //    SceneManager.LoadScene(WORLD_COMPLETE);
                     //    Debug.Log("scene loaded");
                     // }
-                    
+
                     LoadLevel(levelIndex + 1); //change this to update level index itself, make more useful function to change level...
                     if (levelIndex == WIN)
                     {
@@ -227,7 +227,7 @@ public class GameManager : MonoBehaviour
                 CompletionText();
                 Filter();
                 modeSelect();
-                
+
                 break;
 
             case GameState.PLAYING:
@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
                 saveFile.currentLevel = levelIndex;
                 saveFile.wasInGame = true;
                 GameSaver.SaveData(saveFile, dataPath);
-                
+
                 break;
 
             case GameState.GAME_OVER:
@@ -260,7 +260,7 @@ public class GameManager : MonoBehaviour
                 saveFile.currentLevel = 0;
                 saveFile.inClassicMode = false;
                 GameSaver.SaveData(saveFile, dataPath);
-               
+
                 break;
 
             case GameState.WIN:
@@ -298,7 +298,7 @@ public class GameManager : MonoBehaviour
     public void PushGameState(GameState state)
     {
         stateStack.Push(state);
-        
+
     }
 
     public GameState PopGameState()
@@ -308,7 +308,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        
+
         if (classicMode)
         {
             saveFile.inClassicMode = true;
@@ -346,23 +346,23 @@ public class GameManager : MonoBehaviour
         }
         else NewGame();
     }
-#region Backbtn functions
+    #region Backbtn functions
     // function for BackBtn Save Game
     public void SaveMenuGame()
     {
-        
+
         if (saveFile.wasInGame == true)
         {
             if (saveFile.inClassicMode)
             {
                 classicMode = true;
-                counter = counter -1;
+                counter = counter - 1;
             }
             else
             {
                 classicMode = false;
                 deaths = saveFile.deathCount;
-                counter = counter -1;
+                counter = counter - 1;
             }
             GameSaver.SaveData(saveFile, dataPath);
             LoadLevel(MAIN_MENU);
@@ -382,7 +382,7 @@ public class GameManager : MonoBehaviour
         PushGameState(GameState.MAIN_MENU);
         PushGameState(GameState.LOADING);
     }
-#endregion
+    #endregion
     public void QuitGame()
     {
 
@@ -430,41 +430,45 @@ public class GameManager : MonoBehaviour
         GameObject.Find("classicyn").GetComponent<Text>().text = classicMode ? "yes" : "no";
         lives = 1; //this needs to get fixed
     }
-    
+
     public void Filter()
     {
         // Validation Checker for BackBtn (probably redundant but will try and refactor this code segment)
         // if false then increment else set back filterChecker to false to reset its value
-        if(!BackBtn.filterChecker)
+        if (!BackBtn.filterChecker)
         {
             counter++;
-            
+
         }
         else
         {
-            BackBtn.filterChecker = false;    
+            BackBtn.filterChecker = false;
         }
-        
+
         {
-        if (counter == 1) {
-            GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
-            cbeFilter.Type = 1;
-        }
-        else  if (counter == 2) {
-            GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
-            cbeFilter.Type = 2;
-        }
-        else if (counter == 3) {
-            GameObject.Find("filter").GetComponent<Text>().text = "Tritanopia";
-            cbeFilter.Type = 3;
-        } 
-        else {
-            GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
-            counter = 0;
-            cbeFilter.Type = 0;
-        }
-        Debug.Log("filter counter: "+counter);
-        Debug.Log("Filter: " + cbeFilter.Type);
+            if (counter == 1)
+            {
+                GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
+                cbeFilter.Type = 1;
+            }
+            else if (counter == 2)
+            {
+                GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
+                cbeFilter.Type = 2;
+            }
+            else if (counter == 3)
+            {
+                GameObject.Find("filter").GetComponent<Text>().text = "Tritanopia";
+                cbeFilter.Type = 3;
+            }
+            else
+            {
+                GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
+                counter = 0;
+                cbeFilter.Type = 0;
+            }
+            Debug.Log("filter counter: " + counter);
+            Debug.Log("Filter: " + cbeFilter.Type);
         }
     }
 
@@ -478,14 +482,16 @@ public class GameManager : MonoBehaviour
         cbeFilter.Type = 0;
         counter = 0;
         GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
-        
+
     }
     public void modeSelect()
     {
-        if (classicMode == true) {
+        if (classicMode == true)
+        {
             GameObject.Find("classicyn").GetComponent<Text>().text = "Yes";
         }
-        else  if (classicMode == false) {
+        else if (classicMode == false)
+        {
             GameObject.Find("classicyn").GetComponent<Text>().text = "No";
         }
     }
@@ -528,5 +534,5 @@ public class GameManager : MonoBehaviour
     {
         return classicMode;
     }
-    
+
 }
