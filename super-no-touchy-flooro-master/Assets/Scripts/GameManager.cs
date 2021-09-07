@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Wilberforce; //namespace reference when using plugin
+using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
         GAME_OVER,
         WORLD_COMPLETE
     }
+    public PostProcess postFx;
     private const int levelCount = WIN - 1;
     private GameState state; //for now so can change in editor
     private Stack<GameState> stateStack = new Stack<GameState>();
@@ -450,6 +452,7 @@ public class GameManager : MonoBehaviour
             {
                 GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
                 cbeFilter.Type = 1;
+
             }
             else if (counter == 2)
             {
@@ -534,5 +537,4 @@ public class GameManager : MonoBehaviour
     {
         return classicMode;
     }
-
 }

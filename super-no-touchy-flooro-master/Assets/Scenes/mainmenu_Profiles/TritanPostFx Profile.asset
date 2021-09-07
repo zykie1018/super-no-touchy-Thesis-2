@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6749094879320152101
+--- !u!114 &-5054218626470204181
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,31 +77,31 @@ MonoBehaviour:
     value: 0
   mixerRedOutRedIn:
     overrideState: 1
-    value: 40
+    value: -35
   mixerRedOutGreenIn:
     overrideState: 1
-    value: -25
+    value: 88
   mixerRedOutBlueIn:
     overrideState: 1
-    value: 2
+    value: 16
   mixerGreenOutRedIn:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 74
   mixerGreenOutGreenIn:
-    overrideState: 0
-    value: 100
+    overrideState: 1
+    value: 132
   mixerGreenOutBlueIn:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -102
   mixerBlueOutRedIn:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 18
   mixerBlueOutGreenIn:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 133
   mixerBlueOutBlueIn:
-    overrideState: 0
-    value: 100
+    overrideState: 1
+    value: -109
   lift:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: platform Profile 1
+  m_Name: TritanPostFx Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: -6749094879320152101}
+  - {fileID: -5054218626470204181}
