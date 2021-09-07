@@ -1,4 +1,4 @@
-using System.IO;
+﻿using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
         GAME_OVER,
         WORLD_COMPLETE
     }
-    public PostProcess postFx;
     private const int levelCount = WIN - 1;
     private GameState state; //for now so can change in editor
     private Stack<GameState> stateStack = new Stack<GameState>();
@@ -28,6 +27,9 @@ public class GameManager : MonoBehaviour
     private int levelIndex;
     public Colorblind cbeFilter; //reference colorblind plugin
     public GameObject cameraFilter;
+    public GameObject cam1;
+    public GameObject cam2;
+    public GameObject cam3;
 
     /* For loading screen
     public GameObject loadingScreen;
@@ -450,22 +452,34 @@ public class GameManager : MonoBehaviour
         {
             if (counter == 1)
             {
+                cam1.SetActive(true);
+                cam2.SetActive(false);
+                cam3.SetActive(false);
                 GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
                 cbeFilter.Type = 1;
 
             }
             else if (counter == 2)
             {
+                cam1.SetActive(false);
+                cam2.SetActive(true);
+                cam3.SetActive(false);
                 GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
                 cbeFilter.Type = 2;
             }
             else if (counter == 3)
             {
+                cam1.SetActive(false);
+                cam2.SetActive(false);
+                cam3.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Tritanopia";
                 cbeFilter.Type = 3;
             }
             else
             {
+                cam1.SetActive(false);
+                cam2.SetActive(false);
+                cam3.SetActive(false);
                 GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
                 counter = 0;
                 cbeFilter.Type = 0;
