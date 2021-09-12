@@ -498,6 +498,9 @@ public class GameManager : MonoBehaviour
         CompletionText();
         cbeFilter.Type = 0;
         counter = 0;
+        cam1.SetActive(false);
+        cam2.SetActive(false);
+        cam3.SetActive(false);
         GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
 
     }

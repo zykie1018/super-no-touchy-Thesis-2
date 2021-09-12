@@ -544,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &300787940
 Transform:
   m_ObjectHideFlags: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 3fe574343ab0bc344b29d32158f30cf2, type: 2}
-  isGlobal: 0
+  isGlobal: 1
   blendDistance: 0
   weight: 1
   priority: 0
@@ -1675,9 +1675,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8c9f2da150b904f93b78fb74396a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  postFx: {fileID: 0}
   cbeFilter: {fileID: 849252388}
   cameraFilter: {fileID: 849252384}
+  cam1: {fileID: 1578911868}
+  cam2: {fileID: 1333571973}
+  cam3: {fileID: 300787939}
 --- !u!1 &1333571973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,7 +1698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1333571974
 Transform:
   m_ObjectHideFlags: 0
@@ -1827,7 +1829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: 0edb663b336e17940a1e2a5503ef1982, type: 2}
-  isGlobal: 0
+  isGlobal: 1
   blendDistance: 0
   weight: 1
   priority: 0
@@ -2220,7 +2222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1578911869
 Transform:
   m_ObjectHideFlags: 0
@@ -2248,7 +2250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: d66d33433d8dde64dbd9431813f1d731, type: 2}
-  isGlobal: 0
+  isGlobal: 1
   blendDistance: 0
   weight: 1
   priority: 0
@@ -2372,6 +2374,7 @@ MonoBehaviour:
     type: 2}
   deuterPostFxProfile: {fileID: 11400000, guid: 0edb663b336e17940a1e2a5503ef1982,
     type: 2}
+  _colorGrading: {fileID: 0}
 --- !u!1 &1586872336
 GameObject:
   m_ObjectHideFlags: 0
