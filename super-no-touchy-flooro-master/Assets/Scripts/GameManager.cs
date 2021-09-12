@@ -439,7 +439,7 @@ public class GameManager : MonoBehaviour
     {
         // Validation Checker for BackBtn (probably redundant but will try and refactor this code segment)
         // if false then increment else set back filterChecker to false to reset its value
-        if (!BackBtn.filterChecker)
+        if (!BackBtn.filterChecker || !GameGuide.filterChecker)
         {
             counter++;
 
@@ -447,6 +447,7 @@ public class GameManager : MonoBehaviour
         else
         {
             BackBtn.filterChecker = false;
+            GameGuide.filterChecker = false;
         }
 
         {
@@ -558,5 +559,11 @@ public class GameManager : MonoBehaviour
     public void GuideScene()
     {
         SceneManager.LoadScene("gameguide");
+    }
+
+    public void GuideToMainMenu()
+    {
+        LoadLevel(MAIN_MENU);
+        PushGameState(GameState.MAIN_MENU);
     }
 }

@@ -12,14 +12,29 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public string content;
     public void OnPointerEnter(PointerEventData eventData)
     {
-         delay = LeanTween.delayedCall(0.5f, () =>
-        {
-            TooltipSystem.Show(content, header);
-        });
-        
+        delay = LeanTween.delayedCall(0.5f, () =>
+       {
+           TooltipSystem.Show(content, header);
+       });
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
+    {
+        LeanTween.cancel(delay.uniqueId);
+        TooltipSystem.Hide();
+    }
+
+    // To enable the trigger on Gameobjects- it must have any kind of collider plus need to use onmouseenter/exit methods
+    public void OnMouseEnter()
+    {
+        delay = LeanTween.delayedCall(0.5f, () =>
+        {
+            TooltipSystem.Show(content, header);
+        });
+    }
+
+    public void OnMouseExit()
     {
         LeanTween.cancel(delay.uniqueId);
         TooltipSystem.Hide();
