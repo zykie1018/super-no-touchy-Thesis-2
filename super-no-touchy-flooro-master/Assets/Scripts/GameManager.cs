@@ -554,4 +554,9 @@ public class GameManager : MonoBehaviour
     {
         return classicMode;
     }
+
+    public void GuideScene()
+    {
+        SceneManager.LoadScene("gameguide");
+    }
 }

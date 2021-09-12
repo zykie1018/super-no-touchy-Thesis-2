@@ -38,6 +38,11 @@ public class Menu : MonoBehaviour
         GameManager.instance.ContinueGame();
     }
 
+    public void Guide()
+    {
+        GameManager.instance.GuideScene();
+    }
+
     public void QuitGame()
     {
         GameManager.instance.QuitGame();

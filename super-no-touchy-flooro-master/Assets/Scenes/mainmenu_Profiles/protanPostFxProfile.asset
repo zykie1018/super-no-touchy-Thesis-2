@@ -80,22 +80,22 @@ MonoBehaviour:
     value: 134
   mixerRedOutGreenIn:
     overrideState: 1
-    value: -190
+    value: -139
   mixerRedOutBlueIn:
     overrideState: 1
-    value: 60
+    value: 50
   mixerGreenOutRedIn:
     overrideState: 1
-    value: 37
+    value: 48
   mixerGreenOutGreenIn:
     overrideState: 1
-    value: 20
+    value: 1
   mixerGreenOutBlueIn:
     overrideState: 1
-    value: 21
+    value: 16
   mixerBlueOutRedIn:
     overrideState: 1
-    value: -16
+    value: -19
   mixerBlueOutGreenIn:
     overrideState: 1
     value: 96
