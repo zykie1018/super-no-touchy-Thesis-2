@@ -5,24 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Wilberforce; //namespace reference when using plugin
 using UnityEngine.Rendering.PostProcessing;
-
 public class PostProcessPreview : MonoBehaviour
 {
-    public PostProcessVolume ppv;
-    public float changeValue;
-    public Slider slider;
     private static int ppCounter = 0;
 
-    void Update()
-    {
-        ChangeSliderValueAtRuntime();
-    }
-
-    public void ChangeSliderValueAtRuntime()
-    {
-        ppv.weight = slider.value;
-
-    }
     public void FilterButton()
     {
         ppCounter++;
