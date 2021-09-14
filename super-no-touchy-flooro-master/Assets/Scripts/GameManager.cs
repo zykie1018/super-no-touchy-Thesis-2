@@ -578,6 +578,9 @@ public class GameManager : MonoBehaviour
     {
         LoadLevel(MAIN_MENU);
         PushGameState(GameState.MAIN_MENU);
+        PushGameState(GameState.LOADING);
+        cbeFilter.Type = cbeFilter.Type - 1;
+        counter = counter -1;
     }
 
     public void PreviewToMainMenu()
@@ -585,8 +588,9 @@ public class GameManager : MonoBehaviour
         LoadLevel(MAIN_MENU);
         PopGameState();
         PushGameState(GameState.MAIN_MENU);
-        cbeFilter.Type = 0;
-        counter = 0;
+        PushGameState(GameState.LOADING);
+        cbeFilter.Type = -1;
+        counter = -1;
         Debug.Log("current counter:" + counter);
     }
 }
