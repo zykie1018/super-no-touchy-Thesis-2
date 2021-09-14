@@ -53,6 +53,11 @@ public class Menu : MonoBehaviour
         GameManager.instance.Filter();
     }
 
+    public void PpAdjuster()
+    {
+        GameManager.instance.PpAdjuster();
+    }
+
     public void ToggleClassicMode()
     {
         GameManager.instance.ToggleClassicMode();

@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public GameObject cam1;
     public GameObject cam2;
     public GameObject cam3;
+    public GameObject cam5;
 
     /* For loading screen
     public GameObject loadingScreen;
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private bool classicMode = false;
     private Player player;
-    private static int counter = -1;
+    public static int counter = -1;
     private int deaths = 0;
     private int lives = 0;
     private const int STARTING_LIVES = 50;
@@ -127,7 +128,7 @@ public class GameManager : MonoBehaviour
                     PopGameState();
                     OnStateEntered();
                     Debug.Log("chosen filter: " + counter); //colorblind filter checker
-                    Debug.Log("Loading gamestate deaths: " + EntityManager.instance.deathCount.text);
+                    //Debug.Log("Loading gamestate deaths: " + EntityManager.instance.deathCount.text);
 
 
 
@@ -439,7 +440,7 @@ public class GameManager : MonoBehaviour
     {
         // Validation Checker for BackBtn (probably redundant but will try and refactor this code segment)
         // if false then increment else set back filterChecker to false to reset its value
-        if (!BackBtn.filterChecker || !GameGuide.filterChecker)
+        if (!BackBtn.filterChecker)
         {
             counter++;
 
@@ -447,7 +448,6 @@ public class GameManager : MonoBehaviour
         else
         {
             BackBtn.filterChecker = false;
-            GameGuide.filterChecker = false;
         }
 
         {
@@ -502,6 +502,7 @@ public class GameManager : MonoBehaviour
         cam1.SetActive(false);
         cam2.SetActive(false);
         cam3.SetActive(false);
+
         GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
 
     }
@@ -561,9 +562,31 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("gameguide");
     }
 
+    public void PpAdjuster()
+    {
+        SceneManager.LoadScene("postprocessingAdjuster");
+        cam1.SetActive(false);
+        cam2.SetActive(false);
+        cam3.SetActive(false);
+        cam5.SetActive(false);
+        cbeFilter.Type = 0;
+        counter = 0;
+
+    }
+
     public void GuideToMainMenu()
     {
         LoadLevel(MAIN_MENU);
         PushGameState(GameState.MAIN_MENU);
+    }
+
+    public void PreviewToMainMenu()
+    {
+        LoadLevel(MAIN_MENU);
+        PopGameState();
+        PushGameState(GameState.MAIN_MENU);
+        cbeFilter.Type = 0;
+        counter = 0;
+        Debug.Log("current counter:" + counter);
     }
 }

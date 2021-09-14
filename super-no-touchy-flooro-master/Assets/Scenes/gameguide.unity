@@ -2523,6 +2523,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIelements
       objectReference: {fileID: 0}
+    - target: {fileID: 114903105760914100, guid: fdc86f1d667d8ca4ca24002a3f77408f,
+        type: 3}
+      propertyPath: m_Text
+      value: Hover mouse over text to see description of each platforms
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903105760914100, guid: fdc86f1d667d8ca4ca24002a3f77408f,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 223881416458112638, guid: fdc86f1d667d8ca4ca24002a3f77408f,
         type: 3}
       propertyPath: m_Camera

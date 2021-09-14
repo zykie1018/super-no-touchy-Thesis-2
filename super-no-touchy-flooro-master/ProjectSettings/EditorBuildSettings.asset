@@ -143,4 +143,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/gameguide.unity
     guid: 8ec0de249c71e384095a40a5346837d4
+  - enabled: 1
+    path: Assets/Scenes/postprocessingAdjuster.unity
+    guid: c04340ec5a4275c4a9b03c49bcf52175
   m_configObjects: {}
