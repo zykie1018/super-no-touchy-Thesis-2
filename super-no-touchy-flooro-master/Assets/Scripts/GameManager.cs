@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
         GAME_OVER,
         WORLD_COMPLETE
     }
+
+    [SerializeField] private PostProcessVolume[] ppv;
     private const int levelCount = WIN - 1;
     private GameState state; //for now so can change in editor
     private Stack<GameState> stateStack = new Stack<GameState>();
@@ -580,7 +582,7 @@ public class GameManager : MonoBehaviour
         PushGameState(GameState.MAIN_MENU);
         PushGameState(GameState.LOADING);
         cbeFilter.Type = cbeFilter.Type - 1;
-        counter = counter -1;
+        counter = counter - 1;
     }
 
     public void PreviewToMainMenu()
@@ -592,5 +594,10 @@ public class GameManager : MonoBehaviour
         cbeFilter.Type = -1;
         counter = -1;
         Debug.Log("current counter:" + counter);
+    }
+
+    public PostProcessVolume[] AccessVolume()
+    {
+        return ppv;
     }
 }
