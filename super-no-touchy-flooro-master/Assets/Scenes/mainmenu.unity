@@ -1736,7 +1736,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1891,6 +1891,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8c9f2da150b904f93b78fb74396a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ppv:
+  - {fileID: 1578911870}
+  - {fileID: 1333571977}
+  - {fileID: 300787943}
   cbeFilter: {fileID: 849252388}
   cameraFilter: {fileID: 849252384}
   cam1: {fileID: 1578911868}
@@ -1942,7 +1946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1333571974}
+  volumeTrigger: {fileID: 300787940}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 2147483648
@@ -2564,7 +2568,7 @@ GameObject:
   - component: {fileID: 1578911873}
   - component: {fileID: 1578911871}
   - component: {fileID: 1578911870}
-  - component: {fileID: 1578911874}
+  - component: {fileID: 1578911872}
   m_Layer: 31
   m_Name: ProtanPostFx
   m_TagString: Untagged
@@ -2615,7 +2619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1578911869}
+  volumeTrigger: {fileID: 300787940}
   volumeLayer:
     serializedVersion: 2
     m_Bits: 2147483648
@@ -2663,6 +2667,21 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1578911872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578911868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29a43d2f80d73c4e902fcc4fde49988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: []
+  weightSlider: {fileID: 424099163118617351, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
+    type: 3}
 --- !u!20 &1578911873
 Camera:
   m_ObjectHideFlags: 0
@@ -2706,18 +2725,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1578911874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1578911868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bf5502ca412ba644aff51490485cfe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1586872336
 GameObject:
   m_ObjectHideFlags: 0
