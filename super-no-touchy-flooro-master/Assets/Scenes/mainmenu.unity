@@ -1934,6 +1934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8c9f2da150b904f93b78fb74396a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeConvert: {fileID: 0}
   ppv:
   - {fileID: 1578911870}
   - {fileID: 1333571977}
@@ -3631,9 +3632,7 @@ PrefabInstance:
     - target: {fileID: 5340525763208390919, guid: 3106a423be050ac4ea1fa1e2fb222fcf,
         type: 3}
       propertyPath: m_Text
-      value: '00:00
-
-'
+      value: 00:00
       objectReference: {fileID: 0}
     - target: {fileID: 5340525763208390919, guid: 3106a423be050ac4ea1fa1e2fb222fcf,
         type: 3}
@@ -3988,12 +3987,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1968337788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c11c7e41a3566488f2b3aa390dab34, type: 3}
+  m_Script: {fileID: 11500000, guid: 75c0ebddbbdf7e743b73498b8a611707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 0
   minutes: 0
-  timeText: {fileID: 0}
+  timeText: {fileID: 1968337790}
 --- !u!114 &1968337790 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5340525763208390919, guid: 3106a423be050ac4ea1fa1e2fb222fcf,

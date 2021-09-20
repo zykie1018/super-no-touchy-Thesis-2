@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         GAME_OVER,
         WORLD_COMPLETE
     }
-    public static Timer timeConvert;
+    public StopWatch timeConvert;
     [SerializeField] private PostProcessVolume[] ppv;
     private const int levelCount = WIN - 1;
     private GameState state; //for now so can change in editor
@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
                 CompletionText();
                 Filter();
                 modeSelect();
-                timeConvert.pauseTimer();
+                // timeConvert.pauseTimer();
 
                 break;
 

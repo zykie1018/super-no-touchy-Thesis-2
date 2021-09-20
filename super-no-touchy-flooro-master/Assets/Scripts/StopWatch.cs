@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class Timer : MonoBehaviour
+public class StopWatch : MonoBehaviour
 {
     float timer;
 
     public float seconds;
     public float minutes;
-
     bool start;
 
     [SerializeField] Text timeText;
@@ -27,7 +25,7 @@ public class Timer : MonoBehaviour
 
     void stopWatchCalcul()
     {
-        if (start)
+        if (!start)
         {
             timer += Time.deltaTime;
             seconds = (int)(timer % 60);
