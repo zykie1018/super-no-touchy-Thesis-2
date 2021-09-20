@@ -9,6 +9,7 @@ public class BackBtn : MonoBehaviour
     public GameObject pauseUI;
     public GameObject parentObj;
     //public Transform[] hiddenChildren;
+
     public static bool filterChecker;
     Transform checker;
     string pm = "PauseMenu";
@@ -62,6 +63,11 @@ public class BackBtn : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.instance.LoadMainMenu();
         //GameManager.instance.Filter();
+
+    }
+
+    public void PauseMenuStopTimer()
+    {
 
     }
     //Quit Game

@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
                 CompletionText();
                 Filter();
                 modeSelect();
-                // timeConvert.pauseTimer();
+                timeConvert.pauseTimer();
 
                 break;
 
@@ -330,15 +330,15 @@ public class GameManager : MonoBehaviour
             saveFile.inClassicMode = true;
             saveFile.lifeCount = STARTING_LIVES;
         }
-        else saveFile.inClassicMode = false;
-
-        deaths = saveFile.deathCount - saveFile.deathCount;
-        saveFile.deathCount = 0;
-        timeText.SetActive(true);
-        timeConvert.newGameTimer();
-
-        saveFile.wasInGame = true;
-
+        else
+        {
+            saveFile.inClassicMode = false;
+            deaths = saveFile.deathCount - saveFile.deathCount;
+            saveFile.deathCount = 0;
+            //timeText.SetActive(true);
+            saveFile.wasInGame = true;
+            timeConvert.newGameTimer();
+        }
         LoadLevel(LEVEL_ONE);
         PushGameState(GameState.PLAYING);
         PushGameState(GameState.LOADING);

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3576785232130220708}
   - component: {fileID: 9143972212897500703}
   - component: {fileID: 5340525763208390919}
-  - component: {fileID: 597035765263514256}
+  - component: {fileID: 58008212914369823}
   m_Layer: 5
   m_Name: timeText
   m_TagString: Untagged
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Text: 'asdfs
 
 '
---- !u!114 &597035765263514256
+--- !u!114 &58008212914369823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,8 +91,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7668319840835917209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9c11c7e41a3566488f2b3aa390dab34, type: 3}
+  m_Script: {fileID: 11500000, guid: 75c0ebddbbdf7e743b73498b8a611707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 5340525763208390919}
-  startTime: 0
+  seconds: 0
+  minutes: 0
+  timeText: {fileID: 5340525763208390919}

@@ -25,13 +25,14 @@ public class StopWatch : MonoBehaviour
 
     void stopWatchCalcul()
     {
-        if (!start)
+        if (start)
         {
             timer += Time.deltaTime;
             seconds = (int)(timer % 60);
-            minutes = (int)((timer % 60) % 60);
+            minutes = (int)((timer / 60) % 60);
 
             timeText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+
         }
     }
 
