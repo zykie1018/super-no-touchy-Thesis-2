@@ -12,6 +12,8 @@ public class SaveFile
     public int deathCount = 0;
     public int lifeCount = 0;
 
+    public float timerCount = 0;
+
     public HashSet<int> standardLevelIndicesCompleted = new HashSet<int>();
     public HashSet<int> classicLevelIndicesCompleted = new HashSet<int>();
 }

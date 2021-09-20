@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29a43d2f80d73c4e902fcc4fde49988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume: []
   weightSlider: {fileID: 424099163956528996}
 --- !u!1 &866254724
 GameObject:
@@ -1692,6 +1693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slider
+      objectReference: {fileID: 0}
+    - target: {fileID: 424099163118617351, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 424099163118617351, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
         type: 3}

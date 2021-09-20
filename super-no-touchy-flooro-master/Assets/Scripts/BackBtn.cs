@@ -19,7 +19,7 @@ public class BackBtn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             Toggle();
         }
@@ -29,20 +29,20 @@ public class BackBtn : MonoBehaviour
     public void Toggle()
     {
         pauseUI.SetActive(!pauseUI.activeSelf);
-            if(pauseUI.activeSelf)
-            {
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
+        if (pauseUI.activeSelf)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
     public void FindObject()
     {
         parentObj = GameObject.FindGameObjectWithTag("GameCanvas");
         // Transform[] hiddenChildren = parentObj.GetComponentsInChildren<Transform>(true);
-        
+
         // foreach (Transform active in hiddenChildren)
         // {
         //     if(active.name == pm)
@@ -62,7 +62,7 @@ public class BackBtn : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.instance.LoadMainMenu();
         //GameManager.instance.Filter();
-        
+
     }
     //Quit Game
     public void QuitGame()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Wilberforce; //namespace reference when using plugin
 using UnityEngine.Rendering.PostProcessing;
+using GameAnalyticsSDK;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
         GAME_OVER,
         WORLD_COMPLETE
     }
-
+    public static Timer timeConvert;
     [SerializeField] private PostProcessVolume[] ppv;
     private const int levelCount = WIN - 1;
     private GameState state; //for now so can change in editor
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject cam2;
     public GameObject cam3;
     public GameObject cam5;
+    public GameObject timeText;
 
     /* For loading screen
     public GameObject loadingScreen;
@@ -160,9 +162,11 @@ public class GameManager : MonoBehaviour
                         string levels = "";
                         foreach (int i in saveFile.standardLevelIndicesCompleted)
                         {
-                            levels += (i.ToString() + ", ");
+                            levels += i.ToString();
                         }
                         Debug.Log("normal mode level: " + levels);
+                        GameAnalyticsController.SendProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Complete, "levelsCompleted " + levelIndex);
+
 
                     }
 
@@ -203,6 +207,8 @@ public class GameManager : MonoBehaviour
             EntityManager.instance.UpdateDeathCount(deaths);
             saveFile.deathCount = deaths;
             GameSaver.SaveData(saveFile, dataPath);
+            GameAnalyticsController.SendGAEventDesign("DeathCount:user:" + deaths);
+            GameAnalyticsController.SendProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Fail, "FailLevelCount " + saveFile.deathCount);
         }
         else
         {
@@ -210,6 +216,7 @@ public class GameManager : MonoBehaviour
             EntityManager.instance.UpdateDeathCount(lives);
             saveFile.lifeCount = lives;
             GameSaver.SaveData(saveFile, dataPath);
+
 
             if (lives <= 0)
             {
@@ -234,6 +241,7 @@ public class GameManager : MonoBehaviour
                 CompletionText();
                 Filter();
                 modeSelect();
+                timeConvert.pauseTimer();
 
                 break;
 
@@ -250,6 +258,7 @@ public class GameManager : MonoBehaviour
                 }
                 player = FindObjectOfType<Player>();
                 player.onPlayerDeath += HandlePlayerDeathGM;
+
                 //code to fix player dropping input on load scene here
 
                 saveFile.currentLevel = levelIndex;
@@ -322,8 +331,11 @@ public class GameManager : MonoBehaviour
             saveFile.lifeCount = STARTING_LIVES;
         }
         else saveFile.inClassicMode = false;
+
         deaths = saveFile.deathCount - saveFile.deathCount;
         saveFile.deathCount = 0;
+        timeText.SetActive(true);
+        timeConvert.newGameTimer();
 
         saveFile.wasInGame = true;
 
@@ -345,6 +357,7 @@ public class GameManager : MonoBehaviour
             {
                 classicMode = false;
                 deaths = saveFile.deathCount;
+                timeConvert.startTimer();
             }
             //saveFile = GameSaver.LoadData(dataPath);
             LoadLevel(saveFile.currentLevel);
@@ -600,4 +613,5 @@ public class GameManager : MonoBehaviour
     {
         return ppv;
     }
+
 }
