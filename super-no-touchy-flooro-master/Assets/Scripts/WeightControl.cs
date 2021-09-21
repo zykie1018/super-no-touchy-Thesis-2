@@ -12,8 +12,6 @@ public class WeightControl : MonoBehaviour
 
     // [Range(0, 1)]
     // public float changeSliderValue;
-    private float hueShiftMin = -180f;
-    private float hueShiftMax = 180f;
 
     private float weightShiftMin = 0f;
     private float weightShiftMax = 1f;
