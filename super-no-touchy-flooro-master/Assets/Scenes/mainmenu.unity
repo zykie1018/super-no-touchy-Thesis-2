@@ -1946,6 +1946,7 @@ MonoBehaviour:
   cam3: {fileID: 300787939}
   cam5: {fileID: 849252384}
   timeText: {fileID: 1968337788}
+  PersistToNextScene: {fileID: 1753859133}
 --- !u!1 &1333571973
 GameObject:
   m_ObjectHideFlags: 0

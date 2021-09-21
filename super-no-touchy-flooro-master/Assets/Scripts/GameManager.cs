@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public GameObject cam5;
     public GameObject timeText;
 
+    public GameObject PersistToNextScene;
+
     /* For loading screen
     public GameObject loadingScreen;
     public Slider slider;
@@ -242,6 +244,7 @@ public class GameManager : MonoBehaviour
                 Filter();
                 modeSelect();
                 timeConvert.pauseTimer();
+                TimerInMainMenu();
 
                 break;
 
@@ -261,6 +264,7 @@ public class GameManager : MonoBehaviour
 
                 //code to fix player dropping input on load scene here
 
+                timeConvert.startTimer(); // This is for when Gamestate is playing. Checker as well on start up
                 saveFile.currentLevel = levelIndex;
                 saveFile.wasInGame = true;
                 GameSaver.SaveData(saveFile, dataPath);
@@ -338,6 +342,7 @@ public class GameManager : MonoBehaviour
             //timeText.SetActive(true);
             saveFile.wasInGame = true;
             timeConvert.newGameTimer();
+            NewOrContinueGameTimer();
         }
         LoadLevel(LEVEL_ONE);
         PushGameState(GameState.PLAYING);
@@ -358,6 +363,7 @@ public class GameManager : MonoBehaviour
                 classicMode = false;
                 deaths = saveFile.deathCount;
                 timeConvert.startTimer();
+                NewOrContinueGameTimer();
             }
             //saveFile = GameSaver.LoadData(dataPath);
             LoadLevel(saveFile.currentLevel);
@@ -614,4 +620,13 @@ public class GameManager : MonoBehaviour
         return ppv;
     }
 
+    public void TimerInMainMenu()
+    {
+        PersistToNextScene.SetActive(false);
+    }
+
+    public void NewOrContinueGameTimer()
+    {
+        PersistToNextScene.SetActive(true);
+    }
 }
