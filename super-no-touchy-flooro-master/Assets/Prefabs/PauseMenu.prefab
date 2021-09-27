@@ -702,7 +702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5228859002934206700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -889,7 +889,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3966545426537769484, guid: 3280237f22e5c6f4da2d7258f97d3192,
           type: 3}
         m_TargetAssemblyTypeName: BackBtn, Assembly-CSharp
-        m_MethodName: LoadMainMenu
+        m_MethodName: ValidateBackToLoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1004,12 +1004,12 @@ PrefabInstance:
     - target: {fileID: 424099162803104355, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 424099162803104355, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 424099163118617344, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
         type: 3}
@@ -1124,17 +1124,17 @@ PrefabInstance:
     - target: {fileID: 424099164539961649, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 424099164539961649, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 424099164539961649, guid: 5f8a5b968c0c73643b34f5bb2d7846d7,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f8a5b968c0c73643b34f5bb2d7846d7, type: 3}

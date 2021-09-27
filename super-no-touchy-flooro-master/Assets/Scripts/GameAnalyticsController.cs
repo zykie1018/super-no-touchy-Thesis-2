@@ -38,7 +38,7 @@ public class GameAnalyticsController : MonoBehaviour
     {
         GameAnalytics.NewDesignEvent(eventName);
 
-        // checker while game isnt built yet
+        // checker while game isnt built for webgl yet
         Debug.Log(eventName);
 
     }

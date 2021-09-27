@@ -1,34 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Menu : MonoBehaviour
+public class NewMenu : MonoBehaviour
 {
-    public static Menu instance; //needed for button functions, easier music/sounds bc gm wouldn't play when transition to load state
 
-    public AudioClip menuMusic;
-    public AudioClip cursorScroll;
-    public AudioClip cursorSelect;
+    public Button backBtnConfirmSave;
+    private BackBtn backBtn;
 
+    public static NewMenu instance = null;
     private void Awake()
     {
         if (instance == null) instance = this;
         else if (instance != this) Destroy(gameObject);
 
-        // DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Vertical"))
-        {
-            AudioPlayer.instance.PlaySound(cursorScroll);
-        }
-        if (Input.GetButtonDown("Submit"))
-        {
-            AudioPlayer.instance.PlaySound(cursorSelect);
-        }
-    }
     #region Main Menu Button
     public void NewGame()
     {
@@ -105,5 +94,24 @@ public class Menu : MonoBehaviour
     public void CancelReset()
     {
         GameManager.instance.ValidateCanceledReset();
+    }
+
+    public void ConfirmBackToMainMenu()
+    {
+        GameManager.instance.LoadMainMenu();
+        GameManager.instance.ValidateCancelBackToMainMenu();
+    }
+
+    public void ConfirmSaveBackToMainMenu()
+    {
+        // backBtnConfirmSave.confirmBtn.interactable = true;
+        // backBtnConfirmSave.interactableBtn();
+        backBtnConfirmSave.interactable = true;
+        GameManager.instance.SaveMenuGame();
+    }
+
+    public void CancelBackToMainMenu()
+    {
+        GameManager.instance.ValidateCancelBackToMainMenu();
     }
 }

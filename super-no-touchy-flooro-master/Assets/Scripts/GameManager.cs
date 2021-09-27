@@ -21,6 +21,18 @@ public class GameManager : MonoBehaviour
     }
     public StopWatch timeConvert;
     [SerializeField] private PostProcessVolume[] ppv;
+
+    // Validation Panels
+    [Header("Validation")]
+    [Space()]
+
+    [Space()]
+    [Header("Validation Content")]
+    public GameObject newGameConfirm;
+    public GameObject resetConfirm;
+    public GameObject quitConfirm;
+
+    public GameObject backToMainMenuConfirm;
     private const int levelCount = WIN - 1;
     private GameState state; //for now so can change in editor
     private Stack<GameState> stateStack = new Stack<GameState>();
@@ -28,6 +40,8 @@ public class GameManager : MonoBehaviour
     private string dataPath;
     public static GameManager instance = null;
     private int levelIndex;
+
+    [Space()]
     public Colorblind cbeFilter; //reference colorblind plugin
     public GameObject cameraFilter;
     public GameObject cam1;
@@ -35,10 +49,7 @@ public class GameManager : MonoBehaviour
     public GameObject cam3;
     public GameObject cam5;
     public GameObject timeText;
-    public GameObject newGameConfirm;
 
-    public GameObject resetConfirm;
-    public GameObject quitConfirm;
 
     public GameObject PersistToNextScene;
 
@@ -79,6 +90,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(dataPath);
         Debug.Log("level index: " + levelIndex);
         saveFile = GameSaver.LoadData(dataPath);
+
 
         PushGameState(GameState.MAIN_MENU);
         OnStateEntered();
@@ -249,7 +261,7 @@ public class GameManager : MonoBehaviour
                 modeSelect();
                 timeConvert.pauseTimer();
                 TimerInMainMenu();
-                cancelNewGame();
+                ValidateCanceledNewGame();
 
                 break;
 
@@ -331,9 +343,15 @@ public class GameManager : MonoBehaviour
         return stateStack.Pop();
     }
 
-    public void confirmNewGame()
+    public void ConfirmNewGame()
     {
+        newGameConfirm.SetActive(true);
+        resetConfirm.SetActive(false);
+        quitConfirm.SetActive(false);
+    }
 
+    public void NewGame()
+    {
         if (classicMode)
         {
             saveFile.inClassicMode = true;
@@ -348,18 +366,16 @@ public class GameManager : MonoBehaviour
             saveFile.wasInGame = true;
             timeConvert.newGameTimer();
             NewOrContinueGameTimer();
+            newGameConfirm.SetActive(false);
         }
         LoadLevel(LEVEL_ONE);
         PushGameState(GameState.PLAYING);
         PushGameState(GameState.LOADING);
+
     }
 
-    public void NewGame()
-    {
-        newGameConfirm.SetActive(true);
-    }
-
-    public void cancelNewGame()
+    #region Validation Methods
+    public void ValidateCanceledNewGame()
     {
         newGameConfirm.SetActive(false);
     }
@@ -369,7 +385,7 @@ public class GameManager : MonoBehaviour
         resetConfirm.SetActive(true);
     }
 
-    public void cancelReset()
+    public void ValidateCanceledReset()
     {
         resetConfirm.SetActive(false);
     }
@@ -379,11 +395,22 @@ public class GameManager : MonoBehaviour
         quitConfirm.SetActive(true);
     }
 
-    public void cancelQuit()
+    public void ValidateCanceledQuit()
     {
         quitConfirm.SetActive(false);
     }
 
+    public void ValidateBackToMainMenu()
+    {
+        backToMainMenuConfirm.SetActive(true);
+    }
+
+    public void ValidateCancelBackToMainMenu()
+    {
+        backToMainMenuConfirm.SetActive(false);
+    }
+
+    #endregion
     //Persistent Save file -z
     public void ContinueGame()
     {
@@ -426,9 +453,9 @@ public class GameManager : MonoBehaviour
                 counter = counter - 1;
             }
             GameSaver.SaveData(saveFile, dataPath);
-            LoadLevel(MAIN_MENU);
-            PushGameState(GameState.MAIN_MENU);
-            PushGameState(GameState.LOADING);
+            // LoadLevel(MAIN_MENU);
+            // PushGameState(GameState.MAIN_MENU);
+            // PushGameState(GameState.LOADING);
         }
         else Debug.Log("Save File not Found");
     }

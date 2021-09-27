@@ -11,8 +11,16 @@ public class BackBtn : MonoBehaviour
     //public Transform[] hiddenChildren;
 
     public static bool filterChecker;
+
+    public Button confirmBtn;
+    // public bool hasSaved = true;
     Transform checker;
     string pm = "PauseMenu";
+
+    void Awake()
+    {
+
+    }
     void Start()
     {
         FindObject();
@@ -66,10 +74,11 @@ public class BackBtn : MonoBehaviour
 
     }
 
-    public void PauseMenuStopTimer()
+    public void ValidateBackToLoadMainMenu()
     {
-
+        GameManager.instance.ValidateBackToMainMenu();
     }
+
     //Quit Game
     public void QuitGame()
     {
@@ -83,6 +92,11 @@ public class BackBtn : MonoBehaviour
         Time.timeScale = 1f;
         Debug.Log("Game Saved");
         GameManager.instance.SaveMenuGame();
+    }
+
+    public void interactableBtn()
+    {
+        confirmBtn.interactable = true;
     }
 
 }
