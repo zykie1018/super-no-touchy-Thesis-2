@@ -40,7 +40,7 @@ MonoBehaviour:
   SelectedPlatformGameID: fc7e0200
   SelectedOrganization: 01000000
   SelectedStudio: 02000000
-  SelectedGame: 01000000
+  SelectedGame: 02000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
   CustomDimensions03: []
   ResourceItemTypes: []
   ResourceCurrencies: []
-  LastCreatedGamePlatform: 5
+  LastCreatedGamePlatform: 6
   Platforms: 11000000
   CurrentInspectorState: 1
   ClosedHints: 
