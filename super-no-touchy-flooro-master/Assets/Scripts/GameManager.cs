@@ -35,6 +35,10 @@ public class GameManager : MonoBehaviour
     public GameObject cam3;
     public GameObject cam5;
     public GameObject timeText;
+    public GameObject newGameConfirm;
+
+    public GameObject resetConfirm;
+    public GameObject quitConfirm;
 
     public GameObject PersistToNextScene;
 
@@ -245,6 +249,7 @@ public class GameManager : MonoBehaviour
                 modeSelect();
                 timeConvert.pauseTimer();
                 TimerInMainMenu();
+                cancelNewGame();
 
                 break;
 
@@ -326,7 +331,7 @@ public class GameManager : MonoBehaviour
         return stateStack.Pop();
     }
 
-    public void NewGame()
+    public void confirmNewGame()
     {
 
         if (classicMode)
@@ -347,6 +352,36 @@ public class GameManager : MonoBehaviour
         LoadLevel(LEVEL_ONE);
         PushGameState(GameState.PLAYING);
         PushGameState(GameState.LOADING);
+    }
+
+    public void NewGame()
+    {
+        newGameConfirm.SetActive(true);
+    }
+
+    public void cancelNewGame()
+    {
+        newGameConfirm.SetActive(false);
+    }
+
+    public void ResetSave()
+    {
+        resetConfirm.SetActive(true);
+    }
+
+    public void cancelReset()
+    {
+        resetConfirm.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        quitConfirm.SetActive(true);
+    }
+
+    public void cancelQuit()
+    {
+        quitConfirm.SetActive(false);
     }
 
     //Persistent Save file -z
@@ -409,7 +444,7 @@ public class GameManager : MonoBehaviour
         PushGameState(GameState.LOADING);
     }
     #endregion
-    public void QuitGame()
+    public void confirmQuit()
     {
 
 #if UNITY_EDITOR
@@ -511,7 +546,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResetSave()
+    public void confirmReset()
     {
         // deaths = 0;
         // lives = 0;

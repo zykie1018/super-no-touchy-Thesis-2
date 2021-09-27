@@ -72,4 +72,34 @@ public class Menu : MonoBehaviour
     {
         GameManager.instance.ResetSave();
     }
+
+    public void confirmNewGame()
+    {
+        GameManager.instance.confirmNewGame();
+    }
+
+    public void cancelNewGame()
+    {
+        GameManager.instance.cancelNewGame();
+    }
+
+    public void confirmQuit()
+    {
+        GameManager.instance.confirmQuit();
+    }
+
+    public void cancelQuit()
+    {
+        GameManager.instance.cancelQuit();
+    }
+
+    public void confirmReset()
+    {
+        GameManager.instance.confirmReset();
+    }
+
+    public void cancelReset()
+    {
+        GameManager.instance.cancelReset();
+    }
 }
