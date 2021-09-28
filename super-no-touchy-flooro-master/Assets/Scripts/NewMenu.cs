@@ -24,10 +24,10 @@ public class NewMenu : MonoBehaviour
         GameManager.instance.NewGame();
     }
 
-    public void ContinueGame()
-    {
-        GameManager.instance.ContinueGame();
-    }
+    // public void ContinueGame()
+    // {
+    //     GameManager.instance.ContinueGame();
+    // }
 
     public void Guide()
     {

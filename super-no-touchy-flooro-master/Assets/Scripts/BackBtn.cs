@@ -11,7 +11,7 @@ public class BackBtn : MonoBehaviour
     //public Transform[] hiddenChildren;
 
     public static bool filterChecker;
-
+    public NewMenu saved;
     public Button confirmBtn;
     // public bool hasSaved = true;
     Transform checker;
@@ -89,9 +89,10 @@ public class BackBtn : MonoBehaviour
     //Save Game- semiworking 
     public void SaveGame()
     {
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
         Debug.Log("Game Saved");
         GameManager.instance.SaveMenuGame();
+
     }
 
     public void interactableBtn()

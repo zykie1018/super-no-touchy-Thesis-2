@@ -4656,7 +4656,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 280960911}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
@@ -6335,6 +6335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 597035765263514256, guid: 3106a423be050ac4ea1fa1e2fb222fcf, type: 3}
+    - {fileID: 58008212914369823, guid: 3106a423be050ac4ea1fa1e2fb222fcf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3106a423be050ac4ea1fa1e2fb222fcf, type: 3}
 --- !u!224 &1907268802 stripped
 RectTransform:
