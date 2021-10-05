@@ -76,7 +76,7 @@ public class BackBtn : MonoBehaviour
 
     public void ValidateBackToLoadMainMenu()
     {
-        GameManager.instance.ValidateBackToMainMenu();
+        GameManager.instance.ValidateBackToMainMenuPanel();
     }
 
     //Quit Game

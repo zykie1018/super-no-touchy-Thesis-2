@@ -59,9 +59,9 @@ public class NewMenu : MonoBehaviour
         GameManager.instance.RestartGame();
     }
 
-    public void ResetSave()
+    public void ConfirmResetSave()
     {
-        GameManager.instance.ResetSave();
+        GameManager.instance.ValidateConfirmReset();
     }
     #endregion
 

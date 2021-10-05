@@ -367,50 +367,13 @@ public class GameManager : MonoBehaviour
             timeConvert.newGameTimer();
             NewOrContinueGameTimer();
             newGameConfirm.SetActive(false);
+            // Time.timeScale = 1;
         }
         LoadLevel(LEVEL_ONE);
         PushGameState(GameState.PLAYING);
         PushGameState(GameState.LOADING);
 
     }
-
-    #region Validation Methods
-    public void ValidateCanceledNewGame()
-    {
-        newGameConfirm.SetActive(false);
-    }
-
-    public void ResetSave()
-    {
-        resetConfirm.SetActive(true);
-    }
-
-    public void ValidateCanceledReset()
-    {
-        resetConfirm.SetActive(false);
-    }
-
-    public void QuitGame()
-    {
-        quitConfirm.SetActive(true);
-    }
-
-    public void ValidateCanceledQuit()
-    {
-        quitConfirm.SetActive(false);
-    }
-
-    public void ValidateBackToMainMenu()
-    {
-        backToMainMenuConfirm.SetActive(true);
-    }
-
-    public void ValidateCancelBackToMainMenu()
-    {
-        backToMainMenuConfirm.SetActive(false);
-    }
-
-    #endregion
     //Persistent Save file -z
     public void ContinueGame()
     {
@@ -434,43 +397,6 @@ public class GameManager : MonoBehaviour
         }
         else NewGame();
     }
-    #region Backbtn functions
-    // function for BackBtn Save Game
-    public void SaveMenuGame()
-    {
-
-        if (saveFile.wasInGame == true)
-        {
-            if (saveFile.inClassicMode)
-            {
-                classicMode = true;
-                counter = counter - 1;
-            }
-            else
-            {
-                classicMode = false;
-                deaths = saveFile.deathCount;
-                counter = counter - 1;
-            }
-            GameSaver.SaveData(saveFile, dataPath);
-            // LoadLevel(MAIN_MENU);
-            // PushGameState(GameState.MAIN_MENU);
-            // PushGameState(GameState.LOADING);
-        }
-        else Debug.Log("Save File not Found");
-    }
-
-    //function for BackBtn Menu
-    public void LoadMainMenu()
-    {
-        deaths = 0;
-        lives = 0;
-        LoadLevel(MAIN_MENU);
-        PopGameState();
-        PushGameState(GameState.MAIN_MENU);
-        PushGameState(GameState.LOADING);
-    }
-    #endregion
     public void confirmQuit()
     {
 
@@ -517,6 +443,11 @@ public class GameManager : MonoBehaviour
         classicMode = !classicMode;
         GameObject.Find("classicyn").GetComponent<Text>().text = classicMode ? "yes" : "no";
         lives = 1; //this needs to get fixed
+    }
+
+    public void ResetSave()
+    {
+        resetConfirm.SetActive(true);
     }
 
     public void Filter()
@@ -691,4 +622,80 @@ public class GameManager : MonoBehaviour
     {
         PersistToNextScene.SetActive(true);
     }
+
+    #region Backbtn functions
+    // function for BackBtn Save Game
+    public void SaveMenuGame()
+    {
+
+        if (saveFile.wasInGame == true)
+        {
+            if (saveFile.inClassicMode)
+            {
+                classicMode = true;
+                counter = counter - 1;
+            }
+            else
+            {
+                classicMode = false;
+                deaths = saveFile.deathCount;
+                counter = counter - 1;
+            }
+            GameSaver.SaveData(saveFile, dataPath);
+            // LoadLevel(MAIN_MENU);
+            // PushGameState(GameState.MAIN_MENU);
+            // PushGameState(GameState.LOADING);
+        }
+        else Debug.Log("Save File not Found");
+    }
+
+    //function for BackBtn Menu
+    public void LoadMainMenu()
+    {
+        deaths = 0;
+        lives = 0;
+        LoadLevel(MAIN_MENU);
+        PopGameState();
+        PushGameState(GameState.MAIN_MENU);
+        PushGameState(GameState.LOADING);
+    }
+    #endregion
+
+    #region Validation Methods
+    public void ValidateCanceledNewGame()
+    {
+        newGameConfirm.SetActive(false);
+    }
+    public void ValidateConfirmReset()
+    {
+        resetConfirm.SetActive(false);
+        confirmReset();
+    }
+
+    public void ValidateCanceledReset()
+    {
+        resetConfirm.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        quitConfirm.SetActive(true);
+    }
+
+    public void ValidateCanceledQuit()
+    {
+        quitConfirm.SetActive(false);
+    }
+
+    public void ValidateBackToMainMenuPanel()
+    {
+        backToMainMenuConfirm.SetActive(true);
+    }
+
+    public void ValidateCancelBackToMainMenu()
+    {
+        backToMainMenuConfirm.SetActive(false);
+    }
+
+    #endregion
 }
