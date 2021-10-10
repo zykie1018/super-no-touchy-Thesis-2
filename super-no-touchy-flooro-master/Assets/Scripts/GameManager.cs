@@ -471,7 +471,6 @@ public class GameManager : MonoBehaviour
                 cam2.SetActive(false);
                 cam3.SetActive(false);
                 GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
-                cbeFilter.Type = 1;
 
             }
             else if (counter == 2)
@@ -480,7 +479,7 @@ public class GameManager : MonoBehaviour
                 cam2.SetActive(true);
                 cam3.SetActive(false);
                 GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
-                cbeFilter.Type = 2;
+                
             }
             else if (counter == 3)
             {
@@ -488,7 +487,7 @@ public class GameManager : MonoBehaviour
                 cam2.SetActive(false);
                 cam3.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Tritanopia";
-                cbeFilter.Type = 3;
+
             }
             else
             {
@@ -497,7 +496,7 @@ public class GameManager : MonoBehaviour
                 cam3.SetActive(false);
                 GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
                 counter = 0;
-                cbeFilter.Type = 0;
+
             }
             // Debug.Log("filter counter: " + counter);
             // Debug.Log("Filter: " + cbeFilter.Type);
@@ -511,7 +510,6 @@ public class GameManager : MonoBehaviour
         saveFile = new SaveFile();
         ContinueLevelText();
         CompletionText();
-        cbeFilter.Type = 0;
         counter = 0;
         cam1.SetActive(false);
         cam2.SetActive(false);
@@ -583,7 +581,6 @@ public class GameManager : MonoBehaviour
         cam2.SetActive(false);
         cam3.SetActive(false);
         cam5.SetActive(false);
-        cbeFilter.Type = 0;
         counter = 0;
 
     }
@@ -593,7 +590,6 @@ public class GameManager : MonoBehaviour
         LoadLevel(MAIN_MENU);
         PushGameState(GameState.MAIN_MENU);
         PushGameState(GameState.LOADING);
-        cbeFilter.Type = cbeFilter.Type - 1;
         counter = counter - 1;
     }
 
@@ -603,7 +599,6 @@ public class GameManager : MonoBehaviour
         PopGameState();
         PushGameState(GameState.MAIN_MENU);
         PushGameState(GameState.LOADING);
-        cbeFilter.Type = -1;
         counter = -1;
         // Debug.Log("current counter:" + counter);
     }
