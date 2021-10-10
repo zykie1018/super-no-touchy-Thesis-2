@@ -26,9 +26,9 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - f304b28bb6058e210ce28845d614ccf3
+  - c7096a1bbc68aa3ff273b647b247c561
   secretKey:
-  - 5b7c6178d0e226a699eaf332c8b1e025bd85e2aa
+  - 074b8368d5b6b8168a0403eeff42bd3bed6a8846
   Build:
   - 3.2.7
   SelectedPlatformOrganization:
@@ -36,11 +36,11 @@ MonoBehaviour:
   SelectedPlatformStudio:
   - Thesis2-testStudio
   SelectedPlatformGame:
-  - Super No Touchy Flooro
-  SelectedPlatformGameID: fc7e0200
+  - SuperNoTouchyFlooroWithoutCVDSimulator
+  SelectedPlatformGameID: 798b0200
   SelectedOrganization: 01000000
   SelectedStudio: 02000000
-  SelectedGame: 02000000
+  SelectedGame: 04000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
