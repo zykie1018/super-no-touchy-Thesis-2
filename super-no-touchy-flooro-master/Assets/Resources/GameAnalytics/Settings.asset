@@ -30,7 +30,7 @@ MonoBehaviour:
   secretKey:
   - 5b7c6178d0e226a699eaf332c8b1e025bd85e2aa
   Build:
-  - 3.2.5
+  - 3.2.7
   SelectedPlatformOrganization:
   - Ateneo-IT4A
   SelectedPlatformStudio:

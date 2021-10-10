@@ -87,8 +87,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         levelIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(dataPath);
-        Debug.Log("level index: " + levelIndex);
+        // Debug.Log(dataPath);
+        // Debug.Log("level index: " + levelIndex);
         saveFile = GameSaver.LoadData(dataPath);
 
 
@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
 
                     PopGameState();
                     OnStateEntered();
-                    Debug.Log("chosen filter: " + counter); //colorblind filter checker
+                    // Debug.Log("chosen filter: " + counter); //colorblind filter checker
                     //Debug.Log("Loading gamestate deaths: " + EntityManager.instance.deathCount.text);
 
 
@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
                         {
                             levels += (i.ToString() + ", ");
                         }
-                        Debug.Log(levels);
+                        // Debug.Log(levels);
                     }
                     else
                     {
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
                         {
                             levels += i.ToString();
                         }
-                        Debug.Log("normal mode level: " + levels);
+                        // Debug.Log("normal mode level: " + levels);
                         GameAnalyticsController.SendProgressionEvent(GameAnalyticsSDK.GAProgressionStatus.Complete, "levelsCompleted " + levelIndex);
 
 
@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
                     if (levelIndex == WIN)
                     {
                         PopGameState();
-                        Debug.Log(WORLD_COMPLETE);
+                        // Debug.Log(WORLD_COMPLETE);
                         PushGameState(GameState.WIN);
                         PushGameState(GameState.LOADING);
                     }
@@ -499,8 +499,8 @@ public class GameManager : MonoBehaviour
                 counter = 0;
                 cbeFilter.Type = 0;
             }
-            Debug.Log("filter counter: " + counter);
-            Debug.Log("Filter: " + cbeFilter.Type);
+            // Debug.Log("filter counter: " + counter);
+            // Debug.Log("Filter: " + cbeFilter.Type);
         }
     }
 
@@ -605,7 +605,7 @@ public class GameManager : MonoBehaviour
         PushGameState(GameState.LOADING);
         cbeFilter.Type = -1;
         counter = -1;
-        Debug.Log("current counter:" + counter);
+        // Debug.Log("current counter:" + counter);
     }
 
     public PostProcessVolume[] AccessVolume()
@@ -646,7 +646,7 @@ public class GameManager : MonoBehaviour
             // PushGameState(GameState.MAIN_MENU);
             // PushGameState(GameState.LOADING);
         }
-        else Debug.Log("Save File not Found");
+        // else Debug.Log("Save File not Found");
     }
 
     //function for BackBtn Menu

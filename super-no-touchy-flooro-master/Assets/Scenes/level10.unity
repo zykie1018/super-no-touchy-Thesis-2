@@ -804,7 +804,7 @@ PrefabInstance:
     - target: {fileID: 224391675924212182, guid: fdc86f1d667d8ca4ca24002a3f77408f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.399994
+      value: -15.399963
       objectReference: {fileID: 0}
     - target: {fileID: 224465985372490496, guid: fdc86f1d667d8ca4ca24002a3f77408f,
         type: 3}
@@ -970,6 +970,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2828327675466886629, guid: fdc86f1d667d8ca4ca24002a3f77408f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4116018940015685064, guid: fdc86f1d667d8ca4ca24002a3f77408f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 857673097}
+    - target: {fileID: 4116018940015685064, guid: fdc86f1d667d8ca4ca24002a3f77408f,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Toggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4220637123062925204, guid: fdc86f1d667d8ca4ca24002a3f77408f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4533631574361908098, guid: fdc86f1d667d8ca4ca24002a3f77408f,
         type: 3}

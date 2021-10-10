@@ -82,7 +82,7 @@ public class BackBtn : MonoBehaviour
     //Quit Game
     public void QuitGame()
     {
-        Debug.Log("Quitting Game...");
+        // Debug.Log("Quitting Game...");
         Application.Quit();
     }
 
@@ -90,7 +90,7 @@ public class BackBtn : MonoBehaviour
     public void SaveGame()
     {
         // Time.timeScale = 1f;
-        Debug.Log("Game Saved");
+        // Debug.Log("Game Saved");
         GameManager.instance.SaveMenuGame();
 
     }

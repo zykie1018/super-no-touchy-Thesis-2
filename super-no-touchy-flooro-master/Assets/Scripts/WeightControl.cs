@@ -34,7 +34,7 @@ public class WeightControl : MonoBehaviour
 
         //colorGrading.hueShift.value = Random.Range(hueShiftMin, hueShiftMax);
         //colorGrading.mixerGreenOutGreenIn.value = -50f;
-        Debug.Log(volume.Length);
+        // Debug.Log(volume.Length);
         for (int i = 0; i < volume.Length; i++)
         {
             volume[i].weight = Mathf.Lerp(weightShiftMin, weightShiftMax, sliderValue);

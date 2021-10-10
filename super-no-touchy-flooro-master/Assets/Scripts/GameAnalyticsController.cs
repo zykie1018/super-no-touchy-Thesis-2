@@ -31,7 +31,7 @@ public class GameAnalyticsController : MonoBehaviour
     public static void SendProgressionEvent(GAProgressionStatus progressionStatus, string progression01)
     {
         GameAnalytics.NewProgressionEvent(progressionStatus, progression01);
-        Debug.Log(progression01);
+        // Debug.Log(progression01);
     }
 
     public static void SendGAEventDesign(string eventName)
@@ -39,7 +39,7 @@ public class GameAnalyticsController : MonoBehaviour
         GameAnalytics.NewDesignEvent(eventName);
 
         // checker while game isnt built for webgl yet
-        Debug.Log(eventName);
+        // Debug.Log(eventName);
 
     }
 }

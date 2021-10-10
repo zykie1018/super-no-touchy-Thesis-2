@@ -59,7 +59,7 @@ public class MovingPlatController : RaycastController, IResettable, ILockable
 
             foreach (Passenger p in passengers)
             {
-                Debug.Log("passenger on " + transform.name + ": " + p.transform.name);
+                // Debug.Log("passenger on " + transform.name + ": " + p.transform.name);
             }
 
             MovePassengers(true);
@@ -97,7 +97,7 @@ public class MovingPlatController : RaycastController, IResettable, ILockable
         percentBetweenWaypoints += Time.fixedDeltaTime * speed / dstBetweenWaypoints;
         percentBetweenWaypoints = Mathf.Clamp01(percentBetweenWaypoints);
         float easedPercent = Ease(percentBetweenWaypoints);
-        
+
         Vector2 newPos = Vector2.Lerp(globalWaypoints[fromWaypointIndex], globalWaypoints[toWaypointIndex], easedPercent);
 
         if (percentBetweenWaypoints >= 1)
@@ -170,7 +170,7 @@ public class MovingPlatController : RaycastController, IResettable, ILockable
         if (velocity.y != 0)
         {
             float rayLength = Mathf.Abs(velocity.y) + SKIN_WIDTH;
-            
+
             for (int i = 0; i < verticalRayCount; i++)
             {
                 Vector2 rayOrigin = (yDir == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
@@ -247,7 +247,7 @@ public class MovingPlatController : RaycastController, IResettable, ILockable
 
     public void Reset()
     {
-        Debug.Log("mpc Reset " + transform.name);
+        // Debug.Log("mpc Reset " + transform.name);
         transform.position = spawnPoint;
 
         if (globalWaypoints[0] != startPoint)

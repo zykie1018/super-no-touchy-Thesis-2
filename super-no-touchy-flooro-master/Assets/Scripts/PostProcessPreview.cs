@@ -51,8 +51,8 @@ public class PostProcessPreview : MonoBehaviour
                 ppCounter = 0;
                 GameManager.instance.cbeFilter.Type = 0;
             }
-            Debug.Log("filter counter: " + ppCounter);
-            Debug.Log("Filter: " + GameManager.instance.cbeFilter.Type);
+            // Debug.Log("filter counter: " + ppCounter);
+            // Debug.Log("Filter: " + GameManager.instance.cbeFilter.Type);
         }
     }
 
