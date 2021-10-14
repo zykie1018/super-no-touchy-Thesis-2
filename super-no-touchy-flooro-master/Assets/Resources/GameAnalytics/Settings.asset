@@ -26,9 +26,9 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - c7096a1bbc68aa3ff273b647b247c561
+  - be6f990b869946e2bcd83dc0f53b6ebe
   secretKey:
-  - 074b8368d5b6b8168a0403eeff42bd3bed6a8846
+  - fc466768e3af08209788579174c930c3c1c544ac
   Build:
   - 3.2.7
   SelectedPlatformOrganization:
@@ -36,11 +36,11 @@ MonoBehaviour:
   SelectedPlatformStudio:
   - Thesis2-testStudio
   SelectedPlatformGame:
-  - SuperNoTouchyFlooroWithoutCVDSimulator
-  SelectedPlatformGameID: 798b0200
+  - SNTF-Group A and B w/filters
+  SelectedPlatformGameID: 99880200
   SelectedOrganization: 01000000
   SelectedStudio: 02000000
-  SelectedGame: 04000000
+  SelectedGame: 06000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
