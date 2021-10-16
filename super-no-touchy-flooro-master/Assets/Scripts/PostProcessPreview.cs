@@ -18,7 +18,7 @@ public class PostProcessPreview : MonoBehaviour
                 GameManager.instance.cam1.SetActive(true);
                 GameManager.instance.cam2.SetActive(false);
                 GameManager.instance.cam3.SetActive(false);
-                GameManager.instance.cam5.SetActive(false);
+                GameManager.instance.cam5.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
                 GameManager.instance.cbeFilter.Type = 1;
 
@@ -28,28 +28,28 @@ public class PostProcessPreview : MonoBehaviour
                 GameManager.instance.cam1.SetActive(false);
                 GameManager.instance.cam2.SetActive(true);
                 GameManager.instance.cam3.SetActive(false);
-                GameManager.instance.cam5.SetActive(false);
+                GameManager.instance.cam5.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
-                GameManager.instance.cbeFilter.Type = 2;
+                GameManager.instance.cbeFilter.Type = 1;
             }
             else if (ppCounter == 3)
             {
                 GameManager.instance.cam1.SetActive(false);
                 GameManager.instance.cam2.SetActive(false);
                 GameManager.instance.cam3.SetActive(true);
-                GameManager.instance.cam5.SetActive(false);
+                GameManager.instance.cam5.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Tritanopia";
-                GameManager.instance.cbeFilter.Type = 3;
+                GameManager.instance.cbeFilter.Type = 1;
             }
             else
             {
                 GameManager.instance.cam1.SetActive(false);
                 GameManager.instance.cam2.SetActive(false);
                 GameManager.instance.cam3.SetActive(false);
-                GameManager.instance.cam5.SetActive(false);
+                GameManager.instance.cam5.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
                 ppCounter = 0;
-                GameManager.instance.cbeFilter.Type = 0;
+                GameManager.instance.cbeFilter.Type = 1;
             }
             // Debug.Log("filter counter: " + ppCounter);
             // Debug.Log("Filter: " + GameManager.instance.cbeFilter.Type);
@@ -62,8 +62,8 @@ public class PostProcessPreview : MonoBehaviour
         GameManager.instance.cam1.SetActive(false);
         GameManager.instance.cam2.SetActive(false);
         GameManager.instance.cam3.SetActive(false);
-        GameManager.instance.cam5.SetActive(false);
-        ppCounter = 0;
+        GameManager.instance.cam5.SetActive(true);
+        ppCounter = 1;
         GameManager.instance.PreviewToMainMenu();
     }
 
