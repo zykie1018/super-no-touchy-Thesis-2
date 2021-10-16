@@ -26,9 +26,9 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - b02979722b8bdf83cd523d2784b9db2a
+  - 9c79fdac7b9044b3a16387731dc0ebf3
   secretKey:
-  - 629e92f87544f2be0d23294e8cb47e9b56d0779e
+  - 532d741b86baba21ca4d1d682a0b4377cdb904a3
   Build:
   - 3.2.7
   SelectedPlatformOrganization:
@@ -36,11 +36,11 @@ MonoBehaviour:
   SelectedPlatformStudio:
   - Thesis2-testStudio
   SelectedPlatformGame:
-  - SNTF- Protanopia
-  SelectedPlatformGameID: 7c8f0200
+  - SNTF- Deuteranopia
+  SelectedPlatformGameID: 7d8f0200
   SelectedOrganization: 01000000
   SelectedStudio: 02000000
-  SelectedGame: 05000000
+  SelectedGame: 06000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
