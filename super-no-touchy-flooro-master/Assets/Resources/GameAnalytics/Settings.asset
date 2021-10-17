@@ -26,9 +26,9 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - 4d44592fe8662bf4f76a47c5908bd996
+  - fd836624cc6d060638ddd7f7eced0515
   secretKey:
-  - e745d5aed7a1e63ede1d7d359833723c075a6f49
+  - e48f2b9c85d98ae4a0e1082a64ec009b9944bd3b
   Build:
   - 3.2.7
   SelectedPlatformOrganization:
@@ -36,11 +36,11 @@ MonoBehaviour:
   SelectedPlatformStudio:
   - Thesis2-testStudio
   SelectedPlatformGame:
-  - SNTF- Tritanopia
-  SelectedPlatformGameID: 7e8f0200
+  - SNTF- Control group
+  SelectedPlatformGameID: 9a880200
   SelectedOrganization: 01000000
   SelectedStudio: 02000000
-  SelectedGame: 04000000
+  SelectedGame: 08000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0

@@ -20,7 +20,7 @@ public class PostProcessPreview : MonoBehaviour
                 GameManager.instance.cam3.SetActive(false);
                 GameManager.instance.cam5.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Protanopia";
-                GameManager.instance.cbeFilter.Type = 3;
+                GameManager.instance.cbeFilter.Type = 1;
 
             }
             else if (ppCounter == 2)
@@ -30,7 +30,7 @@ public class PostProcessPreview : MonoBehaviour
                 GameManager.instance.cam3.SetActive(false);
                 GameManager.instance.cam5.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Deuteranopia";
-                GameManager.instance.cbeFilter.Type = 3;
+                GameManager.instance.cbeFilter.Type = 2;
             }
             else if (ppCounter == 3)
             {
@@ -49,7 +49,7 @@ public class PostProcessPreview : MonoBehaviour
                 GameManager.instance.cam5.SetActive(true);
                 GameObject.Find("filter").GetComponent<Text>().text = "Normal Vision";
                 ppCounter = 0;
-                GameManager.instance.cbeFilter.Type = 3;
+                GameManager.instance.cbeFilter.Type = 0;
             }
             // Debug.Log("filter counter: " + ppCounter);
             // Debug.Log("Filter: " + GameManager.instance.cbeFilter.Type);
@@ -63,7 +63,7 @@ public class PostProcessPreview : MonoBehaviour
         GameManager.instance.cam2.SetActive(false);
         GameManager.instance.cam3.SetActive(false);
         GameManager.instance.cam5.SetActive(true);
-        ppCounter = 3;
+        ppCounter = 0;
         GameManager.instance.PreviewToMainMenu();
     }
 
